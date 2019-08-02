@@ -1,3 +1,0 @@
-Arial - 10
-Mientras se edita, seleccionar la parte que quieras y ponerla en rojo.
-Color fuente: ebebb3 - Rojo 235 - Verde 235 - Azul - 179

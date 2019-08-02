@@ -1,0 +1,55 @@
+package overlay;
+
+public class Constants {
+
+    // APP Constants
+    public static final String JFRAME_BUTTONS_NAME = "Application";
+    public static final String JFRAME_ADDITIONAL_INFO = "jframeAdditionalInfo";
+    public static final int DEFAULT_BUTTON_WIDTH = 50;
+    public static final int DEFAULT_BUTTON_HEIGHT = 50;
+    public static final int DEFAULT_JPANEL_INFORMATION_ALTURA = 480;
+    public static final int DEFAULT_JPANEL_INFORMATION_ANCHURA = 900;
+
+    // Nombre items
+    public static final String ITEM_BF = "itemBF";
+    public static final String ITEM_BOW = "itemBow";
+    public static final String ITEM_ROD = "itemRod";
+    public static final String ITEM_TEAR = "itemTear";
+    public static final String ITEM_VEST = "itemVest";
+    public static final String ITEM_CLOAK = "itemCloak";
+    public static final String ITEM_BELT = "itemBelt";
+    public static final String ITEM_SPATULA = "itemSpatula";
+    public static final String TIERS = "tiers";
+    public static final String KEYBINDINGS = "keybindings";
+    public static final String HYPED_TIER_LIST = "hypedTierList";
+    public static final String ORIGINS_1 = "origins1";
+    public static final String META = "meta";
+
+    // Rutas imagenes items simples
+    public static final String RUTA_ITEM_BF_ICON = "/Images/BF.png";
+    public static final String RUTA_ITEM_BOW_ICON = "/Images/Bow.png";
+    public static final String RUTA_ITEM_ROD_ICON = "/Images/Rod.png";
+    public static final String RUTA_ITEM_TEAR_ICON = "/Images/Tear.png";
+    public static final String RUTA_ITEM_VEST_ICON = "/Images/Vest.png";
+    public static final String RUTA_ITEM_CLOAK_ICON = "/Images/Cape.png";
+    public static final String RUTA_ITEM_BELT_ICON = "/Images/Belt.png";
+    public static final String RUTA_ITEM_SPATULA_ICON = "/Images/Spatula.png";
+    public static final String RUTA_TIERS_ICON = "/Propias/TIERS.png";
+    public static final String RUTA_ORIGINS_ICON = "/Propias/ORIGINS.png";
+    public static final String RUTA_KEYBINDINGS_ICON = "/Propias/KEYBINDINGS_ICON.png";
+
+    // Rutas imagenes items combinados
+    public static final String RUTA_PROPIA_BF = "/Propias/BF.png";
+    public static final String RUTA_PROPIA_BOW = "/Propias/BOW.png";
+    public static final String RUTA_PROPIA_ROD = "/Propias/ROD.png";
+    public static final String RUTA_PROPIA_TEAR = "/Propias/TEAR.png";
+    public static final String RUTA_PROPIA_VEST = "/Propias/VEST.png";
+    public static final String RUTA_PROPIA_CLOAK = "/Propias/CLOAK.png";
+    public static final String RUTA_PROPIA_BELT = "/Propias/BELT.png";
+    public static final String RUTA_PROPIA_SPATULA = "/Propias/SPATULA.png";
+    public static final String RUTA_PROPIA_TIERS = "/Propias/TIERS_CHANCE.png";
+    public static final String RUTA_PROPIA_KEYBINDINGS = "/Propias/KEYBINDINGS.png";
+    public static final String RUTA_PROPIA_HYPED_TIER_LIST = "/Propias/HYPED_TIER_LIST.png";
+    public static final String RUTA_PROPIA_ORIGINS_1 = "/Propias/ORIGINS-1.png";
+    public static final String RUTA_PROPIA_META = "/Propias/META.png";
+}
