@@ -2,11 +2,10 @@ import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Method;
 import java.net.*;
-import java.security.Timestamp;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Pack200;
 import java.util.zip.GZIPInputStream;
@@ -24,13 +23,19 @@ public class AppLoader {
     static final String JarName = "tft-overlay-core.jar";
 
     // The path to the update jar at website
-    static final String JarURL = "http://github.com/kotololeuw/tft-overlay-app/blob/master/bin/tft-overlay-core.jar";
+    static final String JarURL = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-core.jar";
 
     // The name of jar that holds this class
     static final String LoaderJarName = "AppLoader.jar";
 
     // The main class of the main application
     static final String MainClass = "Application";
+
+    // Version local
+    static final String versionLocalPath = "version.txt";
+
+    // Version online
+    static final String versionOnlineUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/version.txt";
 
     /**
      * Main method - reinvokes main1() on Swing thread in exception handler.
@@ -40,8 +45,8 @@ public class AppLoader {
         try {
             main1(args);
         } catch (Throwable e) {
-            JOptionPane.showMessageDialog(null, e.toString());
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.toString());
         }
     }
 
@@ -52,118 +57,135 @@ public class AppLoader {
      * update from remove site in background
      */
     public static void main1(final String args[]) throws Exception {
-        // Make sure default jar is in place
         try {
             copyDefaultMainJar();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+        } catch (Throwable e) {
             e.printStackTrace();
+            // JOptionPane.showMessageDialog(null, e.toString());
         }
 
-        // If Update Jar exists, copy it into place
-        File jar = getAppFile(JarName);
-        File updateJar = getAppFile(JarName + ".update");
-        // Si existe el archivo JARNAME.update lo actualizamos
-        if (updateJar.exists()) {
-            copyFile(updateJar, jar);
-            jar.setLastModified(updateJar.lastModified());
-            updateJar.delete();
-        }
-
-        // If jar doesn't exist complain bitterly
-        if (!jar.exists() || !jar.canRead())
-            throw new RuntimeException("Main Jar not found!");
-
-        // Check for updates in background thread
-        if (args.length == 0 || !args[0].equals("-snap"))
-            new Thread(new Runnable() {
-                public void run() {
-                    checkForUpdatesSilent();
-                }
-            }).start();
-
-        // Create URLClassLoader for main jar file, get App class and invoke
-        // main
-//      URLClassLoader ucl = new URLClassLoader(
-//              new URL[] { jar.toURI().toURL() });
-//      Class cls = ucl.loadClass(MainClass); // ucl.close();
-//      Method meth = cls.getMethod("main", new Class[] { String[].class });
-//      meth.invoke(null, new Object[] { args });
-//      if (cls == Object.class)
-//          ((Closeable) ucl).close(); // Getting rid of warning message for ucl
+        // Launch JAR
+        String rutaJarMainApp = getAppDataDirLocal((AppDirName + "\\" + JarName));
+        Runtime.getRuntime().exec("java -jar " + rutaJarMainApp);
     }
 
     /**
      * Copies the default main jar into place for initial run.
      */
-    private static void copyDefaultMainJar() throws IOException, ParseException {
-        // Get main jar from app package and get location of working jar file
-        URL url = AppLoader.class.getProtectionDomain().getCodeSource()
-                .getLocation();
-        String path0 = url.getPath();
-        path0 = URLDecoder.decode(path0, "UTF-8");
+    private static void copyDefaultMainJar() throws IOException {
+        // Get main jar from local
+        File jarLocal = getAppFile(JarName);
 
-        path0 = path0 + JarName ;
-        File jar0 = getAppFile(JarName);
-        File jar1 = new File(path0);
+        // Online version
+        URL onlineVersionUrl = new URL(versionOnlineUrl);
+        HttpURLConnection onlineVersionHttp = (HttpURLConnection) onlineVersionUrl.openConnection();
+        InputStream onlineVersionStream = onlineVersionHttp.getInputStream();
+        String versionOnline = getStringFromStream(onlineVersionStream);
 
-        // If app package main jar is newer, copy it into place and set time
-        if (jar0.exists() && jar0.lastModified() >= jar1.lastModified()) {
-            return;
+        // Get online version
+        File versionLocalFile = new File(getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
+        if(!versionLocalFile.exists()) {
+            downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         }
-        copyFile(jar1, jar0);
+
+        // Local version
+        String pathEx = getAppDataDirLocal(AppDirName + "\\" + versionLocalPath);
+        String versionLocal = readFile(pathEx);
+
+
+        // We copy online file to local if it doesnt exist or it's an old version
+        if (!jarLocal.exists()) {
+            downloadFileToLocal(JarURL, JarName);
+        } else if(!versionLocal.equals(versionOnline)) {
+            // Delete local jar
+            jarLocal.delete();
+            // Download online jar
+            downloadFileToLocal(JarURL, JarName);
+        }
     }
 
+
     /**
-     * Check for updates.
+     * download an online file to local
      */
-    private static void checkForUpdatesSilent() {
+    private static void downloadFileToLocal(String url, String file) {
         try {
-            checkForUpdates();
-        } catch (Exception e) {
+            URL onlineFileUrl = new URL(url);
+            HttpURLConnection onlineFileHttp = (HttpURLConnection) onlineFileUrl.openConnection();
+            InputStream onlineFileStream = onlineFileHttp.getInputStream();
+            String path = getAppDataDirLocal(AppDirName) + "\\" + file;
+            Files.copy(onlineFileStream, Paths.get(path));
+        } catch (Throwable e ) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Check for updates.
+     * Method for getting the string content from a stream
+     * @param inputStream inputstream
+     * @return String
      */
-    private static void checkForUpdates() throws IOException {
-        // Get URL connection and lastModified time
-        File jarFile = getAppFile(JarName);
-        URL url = new URL(JarURL);
-        URLConnection connection = url.openConnection();
-        long mod0 = jarFile.lastModified();
-        Date mod0Date = new Date(mod0);
-        long mod1 = connection.getLastModified();
-        Date mod1Date = new Date(mod1);
-        if (mod0 >= mod1) {
-            System.out.println("No update available at " + JarURL + '(' + mod0
-                    + '>' + mod1 + ')');
-            return;
-        }
+    private static String getStringFromStream(InputStream inputStream) {
+        if (inputStream != null) {
+            Writer writer = new StringWriter();
 
-        // Get update file and write to JarName.update
-        System.out.println("Loading update from " + JarURL);
-        byte bytes[] = getBytes(connection);
-        System.out.println("Update loaded");
-        File updatePacked = getAppFile(JarName + ".pack.gz"), updateFile = getAppFile(JarName
-                + ".update");
-        writeBytes(updatePacked, bytes);
-        System.out.println("Update saved: " + updatePacked);
-        unpack(updatePacked, updateFile);
-        System.out.println("Update unpacked: " + updateFile);
-        updateFile.setLastModified(mod1);
-        updatePacked.delete();
-
-        // Let the user know
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JOptionPane
-                        .showMessageDialog(null,
-                                "A new update is available. Restart application to apply");
+            char[] buffer = new char[2048];
+            try {
+                Reader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                int counter;
+                while ((counter = reader.read(buffer)) != -1) {
+                    writer.write(buffer, 0, counter);
+                }
+            } catch(Throwable e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    inputStream.close();
+                } catch(Throwable e) {
+                    e.printStackTrace();
+                }
             }
-        });
+            return writer.toString();
+        } else {
+            return "No Contents";
+        }
+    }
+
+
+    /**
+     * Reading file method
+     * @param path path
+     * @return String file content
+     */
+    private static String readFile(String path) {
+        // The name of the file to open.
+        String fileName = path;
+        String result = "";
+
+        // This will reference one line at a time
+        String line = null;
+
+        try {
+            // FileReader reads text files in the default encoding.
+            File file = new File(path);
+            InputStream in = new FileInputStream(file);
+            Reader reader = new InputStreamReader(in);
+
+            // Always wrap FileReader in BufferedReader.
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                result = result + line;
+            }
+
+            // Always close files.
+            bufferedReader.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file '" + fileName + "'");
+        } catch (IOException ex) {
+            System.out.println("Error reading file '" + fileName + "'");
+        }
+        return result;
     }
 
     /**
@@ -180,138 +202,36 @@ public class AppLoader {
         return getAppDataDir(AppDirName, true);
     }
 
-/**
- *
- * Utility Methods for AppLoader.
- *
- */
-
-    /**
-     * Copies a file from one location to another.
-     */
-    public static File copyFile(File aSource, File aDest) throws IOException {
-        // Get input stream, output file and output stream
-        FileInputStream fis = new FileInputStream(aSource);
-        File out = aDest.isDirectory() ? new File(aDest, aSource.getName())
-                : aDest;
-        FileOutputStream fos = new FileOutputStream(out);
-
-        // Iterate over read/write until all bytes written
-        byte[] buf = new byte[8192];
-        for (int i = fis.read(buf); i != -1; i = fis.read(buf))
-            fos.write(buf, 0, i);
-
-        // Close in/out streams and return out file
-        fis.close();
-        fos.close();
-        return out;
-    }
-
-    /**
-     * Writes the given bytes (within the specified range) to the given file.
-     */
-    public static void writeBytes(File aFile, byte theBytes[])
-            throws IOException {
-        if (theBytes == null) {
-            aFile.delete();
-            return;
-        }
-        FileOutputStream fileStream = new FileOutputStream(aFile);
-        fileStream.write(theBytes);
-        fileStream.close();
-    }
-
-    /**
-     * Unpacks the given file into the destination file.
-     */
-    public static File unpack(File aFile, File aDestFile) throws IOException {
-        // Get dest file - if already unpacked, return
-        File destFile = getUnpackDestination(aFile, aDestFile);
-        if (destFile.exists() && destFile.lastModified() > aFile.lastModified())
-            return destFile;
-
-        // Create streams: FileInputStream -> GZIPInputStream -> JarOutputStream
-        // -> FileOutputStream
-        FileInputStream fileInput = new FileInputStream(aFile);
-        GZIPInputStream gzipInput = new GZIPInputStream(fileInput);
-        FileOutputStream fileOut = new FileOutputStream(destFile);
-        JarOutputStream jarOut = new JarOutputStream(fileOut);
-
-        // Unpack file
-        Pack200.newUnpacker().unpack(gzipInput, jarOut);
-
-        // Close streams
-        fileInput.close();
-        gzipInput.close();
-        jarOut.close();
-        fileOut.close();
-
-        // Return destination file
-        return destFile;
-    }
-
-    /**
-     * Returns the file that given packed file would be saved to using the
-     * unpack method.
-     */
-    public static File getUnpackDestination(File aFile, File aDestFile) {
-        // Get dest file - if null, create from packed file minus .pack.gz
-        File destFile = aDestFile;
-        if (destFile == null)
-            destFile = new File(aFile.getPath().replace(".pack.gz", ""));
-
-            // If dest file is directory, change to file inside with packed file
-            // minus .pack.gz
-        else if (destFile.isDirectory())
-            destFile = new File(destFile, aFile.getName().replace(".pack.gz",
-                    ""));
-
-        // Return destination file
-        return destFile;
-    }
-
     /**
      * Returns the AppData or Application Support directory file.
      */
     public static File getAppDataDir(String aName, boolean doCreate) {
-        // Get user home + AppDataDir (platform specific) + name (if provided)
-        String dir = System.getProperty("user.home");
-        if (isWindows)
-            dir += File.separator + "AppData" + File.separator + "Local";
-        else if (isMac)
-            dir += File.separator + "Library" + File.separator
-                    + "Application Support";
-        if (aName != null)
-            dir += File.separator + aName;
-
+        String dir = getAppDataDirLocal(aName);
         // Create file, actual directory (if requested) and return
         File dfile = new File(dir);
-        if (doCreate && aName != null)
+        if (doCreate && aName != null) {
             dfile.mkdirs();
+        }
         return dfile;
     }
 
     /**
-     * Returns bytes for connection.
+     * Method for getting Appdata
+     * @param aName String
+     * @return String
      */
-    public static byte[] getBytes(URLConnection aConnection) throws IOException {
-        InputStream stream = aConnection.getInputStream(); // Get stream for
-        // connection
-        byte bytes[] = getBytes(stream); // Get bytes for stream
-        stream.close(); // Close stream
-        return bytes; // Return bytes
-    }
-
-    /**
-     * Returns bytes for an input stream.
-     */
-    public static byte[] getBytes(InputStream aStream) throws IOException {
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        byte chunk[] = new byte[8192];
-        for (int len = aStream.read(chunk, 0, 8192); len > 0; len = aStream
-                .read(chunk, 0, 8192))
-            bs.write(chunk, 0, len);
-        return bs.toByteArray();
+    public static String getAppDataDirLocal(String aName) {
+        // Get user home + AppDataDir (platform specific) + name (if provided)
+        String dir = System.getProperty("user.home");
+        if (isWindows) {
+            dir += File.separator + "AppData" + File.separator + "Local";
+        } else if (isMac) {
+            dir += File.separator + "Library" + File.separator
+                    + "Application Support";
+        }
+        if (aName != null)
+            dir += File.separator + aName;
+        return dir;
     }
 
     // Whether Windows/Mac
