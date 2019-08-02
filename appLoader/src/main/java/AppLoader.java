@@ -61,7 +61,6 @@ public class AppLoader {
             copyDefaultMainJar();
         } catch (Throwable e) {
             e.printStackTrace();
-            // JOptionPane.showMessageDialog(null, e.toString());
         }
 
         // Launch JAR
@@ -82,9 +81,10 @@ public class AppLoader {
         InputStream onlineVersionStream = onlineVersionHttp.getInputStream();
         String versionOnline = getStringFromStream(onlineVersionStream);
 
-        // Get online version
         File versionLocalFile = new File(getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
+
         if(!versionLocalFile.exists()) {
+            // Get online version if not exist
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         }
 
@@ -101,6 +101,10 @@ public class AppLoader {
             jarLocal.delete();
             // Download online jar
             downloadFileToLocal(JarURL, JarName);
+            // Delete local version
+            versionLocalFile.delete();
+            // Download local version
+            downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         }
     }
 
