@@ -41,8 +41,9 @@ public class Application extends JPanel {
             createButtonMainBar(Constants.RUTA_TIERS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TIERS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ORIGINS_1, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.HYPED_TIER_LIST, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.META, jframeAdditionalInfo);
+            // createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.HYPED_TIER_LIST, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_META_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.META, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_META_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.META_2, jframeAdditionalInfo);
 
             // Pack jframe
             jframeButtons.pack();

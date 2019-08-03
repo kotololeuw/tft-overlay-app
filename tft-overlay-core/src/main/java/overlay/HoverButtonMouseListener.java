@@ -50,7 +50,7 @@ public class HoverButtonMouseListener extends MouseAdapter {
             mouseEnteredPanel(Constants.RUTA_PROPIA_TIERS, 525, 340, Color.BLACK);
         }
         if (btnName.equals(Constants.KEYBINDINGS)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, 568, 380, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, 550, 340, new Color(6, 14, 33));
         }
         if (btnName.equals(Constants.HYPED_TIER_LIST)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_HYPED_TIER_LIST, 945, 600, new Color(181,182,182));
@@ -60,6 +60,9 @@ public class HoverButtonMouseListener extends MouseAdapter {
         }
         if (btnName.equals(Constants.META)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_META, 1150, 700, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.META_2)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_META_2, 820, 530, new Color(18, 30, 55));
         }
     }
 
@@ -114,6 +117,10 @@ public class HoverButtonMouseListener extends MouseAdapter {
             borrarComponentesDeJframe();
         }
         if (btnName.equals(Constants.META)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.META_2)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }

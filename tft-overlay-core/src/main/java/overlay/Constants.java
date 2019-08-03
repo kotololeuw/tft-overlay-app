@@ -24,19 +24,21 @@ public class Constants {
     public static final String HYPED_TIER_LIST = "hypedTierList";
     public static final String ORIGINS_1 = "origins1";
     public static final String META = "meta";
+    public static final String META_2 = "meta2";
 
     // Rutas imagenes items simples
-    public static final String RUTA_ITEM_BF_ICON = "/Images/BF.png";
-    public static final String RUTA_ITEM_BOW_ICON = "/Images/Bow.png";
-    public static final String RUTA_ITEM_ROD_ICON = "/Images/Rod.png";
-    public static final String RUTA_ITEM_TEAR_ICON = "/Images/Tear.png";
-    public static final String RUTA_ITEM_VEST_ICON = "/Images/Vest.png";
-    public static final String RUTA_ITEM_CLOAK_ICON = "/Images/Cape.png";
-    public static final String RUTA_ITEM_BELT_ICON = "/Images/Belt.png";
-    public static final String RUTA_ITEM_SPATULA_ICON = "/Images/Spatula.png";
+    public static final String RUTA_ITEM_BF_ICON = "/Propias/objetos-simples/BF.png";
+    public static final String RUTA_ITEM_BOW_ICON = "/Propias/objetos-simples/Bow.png";
+    public static final String RUTA_ITEM_ROD_ICON = "/Propias/objetos-simples/Rod.png";
+    public static final String RUTA_ITEM_TEAR_ICON = "/Propias/objetos-simples/Tear.png";
+    public static final String RUTA_ITEM_VEST_ICON = "/Propias/objetos-simples/Vest.png";
+    public static final String RUTA_ITEM_CLOAK_ICON = "/Propias/objetos-simples/Cape.png";
+    public static final String RUTA_ITEM_BELT_ICON = "/Propias/objetos-simples/Belt.png";
+    public static final String RUTA_ITEM_SPATULA_ICON = "/Propias/objetos-simples/Spatula.png";
     public static final String RUTA_TIERS_ICON = "/Propias/TIERS.png";
     public static final String RUTA_ORIGINS_ICON = "/Propias/ORIGINS.png";
     public static final String RUTA_KEYBINDINGS_ICON = "/Propias/KEYBINDINGS_ICON.png";
+    public static final String RUTA_META_ICON = "/Propias/CARROUSEL.png";
 
     // Rutas imagenes items combinados
     public static final String RUTA_PROPIA_BF = "/Propias/BF.png";
@@ -52,4 +54,5 @@ public class Constants {
     public static final String RUTA_PROPIA_HYPED_TIER_LIST = "/Propias/HYPED_TIER_LIST.png";
     public static final String RUTA_PROPIA_ORIGINS_1 = "/Propias/ORIGINS-1.png";
     public static final String RUTA_PROPIA_META = "/Propias/META.png";
+    public static final String RUTA_PROPIA_META_2 = "/Propias/META-2.png";
 }
