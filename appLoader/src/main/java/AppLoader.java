@@ -75,7 +75,7 @@ public class AppLoader {
         // Get main jar from local
         File jarLocal = getAppFile(JarName);
 
-        // Online version
+        // Online version || Note: It takes about 5-10 min to refresh the version when you upload a new version.txt
         URL onlineVersionUrl = new URL(versionOnlineUrl);
         HttpURLConnection onlineVersionHttp = (HttpURLConnection) onlineVersionUrl.openConnection();
         InputStream onlineVersionStream = onlineVersionHttp.getInputStream();
