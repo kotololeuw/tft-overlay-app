@@ -1,14 +1,10 @@
 import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Method;
 import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.ParseException;
-import java.util.Date;
-import java.util.jar.JarOutputStream;
-import java.util.jar.Pack200;
-import java.util.zip.GZIPInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 /**
  * This class checks for an updated main jar and, if found, downloads it.
@@ -19,17 +15,17 @@ public class AppLoader {
     // The App directory
     static final String AppDirName = "appLoader";
 
-    // The main application jar name
-    static final String JarName = "tft-overlay-core.jar";
+    // The main application zip name
+    static final String zipName = "tft-overlay-core.zip";
 
-    // The path to the update jar at website
-    static final String JarURL = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-core.jar";
+    // The main application zip folder
+    static final String zipNameFolder = "tft-overlay-core";
 
-    // The name of jar that holds this class
-    static final String LoaderJarName = "AppLoader.jar";
+    // First folder in the zip to extract
+    static final String firstFolderInZipToExtract = "tft-overlay-core";
 
-    // The main class of the main application
-    static final String MainClass = "Application";
+    // The path to the update zip at website
+    static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-core.zip";
 
     // Version local
     static final String versionLocalPath = "version.txt";
@@ -37,52 +33,167 @@ public class AppLoader {
     // Version online
     static final String versionOnlineUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/version.txt";
 
+    // Folder core local
+    static final String folderCoreLocalName = "tft-overlay-core\\tft-overlay-core.exe";
+
     /**
      * Main method - reinvokes main1() on Swing thread in exception handler.
      */
     public static void main(final String args[]) {
         // Invoke real main with exception handler
         try {
-            main1(args);
+            init(args);
         } catch (Throwable e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e.toString());
+            System.exit(0);
         }
     }
 
     /**
-     * Main method: - Gets main Jar file from default, if missing - Updates main
-     * Jar file from local update file, if previously loaded - Load main Jar
-     * into URLClassLoader, load main class and invoke main method - Check for
-     * update from remove site in background
+     * Init
+     * @param args args
+     * @throws Exception Exception
      */
-    public static void main1(final String args[]) throws Exception {
+    public static void init(final String args[]) throws Exception {
+        System.out.println("### BEGIN init ###");
+        new Thread("initThread"){
+            public void run(){
+               JOptionPane.showOptionDialog(null, "Launching Application...","   tft-overlay-app made by Kotolol", JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
+            }
+        }.start();
         try {
-            copyDefaultMainJar();
+            copyFilesToLocal();
+        } catch (Throwable e) {
+           System.out.println("there was en error launching application:");
+           System.out.println(e);
+           System.out.println("trying to launch in offline mode if file already exist");
+            // Launch EXE if exist
+            String rutaApp = getAppDataDirLocal((AppDirName + "\\" + folderCoreLocalName));
+            File executeApp = new File(rutaApp);
+            if(executeApp.exists()) {
+                System.out.println(rutaApp + " file has been found, executing...");
+                Runtime.getRuntime().exec(rutaApp);
+                System.exit(0);
+            } else {
+                System.out.println(executeApp.getPath() + " file not found");
+                throw new Exception("error copying files to local");
+            }
+        }
+
+        // Launch EXE
+        String rutaApp = getAppDataDirLocal((AppDirName + "\\" + folderCoreLocalName));
+        File executeApp = new File(rutaApp);
+        if(executeApp.exists()) {
+            System.out.println("rutaApp= " + rutaApp);
+            Runtime.getRuntime().exec(rutaApp);
+        } else {
+            System.out.println("Application does not exist");
+            throw new Exception("Application does not exist");
+        }
+        System.out.println("### END init ###");
+        System.exit(0);
+    }
+
+    private static void extractZip() {
+        System.out.println("### BEGIN extractZip ###");
+        try {
+            File zipLocal = getAppFile(zipName);
+            String zipPath = zipLocal.getPath();
+            String rutaDestino = getAppDataDirLocal(AppDirName);
+            File folderDestino = new File(rutaDestino);
+            // Create first extracted folder inside zip (if it doesnt exist, it will fail)
+            String firstFolderInZip = rutaDestino + "\\" + firstFolderInZipToExtract;
+            File firstFolder = new File(firstFolderInZip);
+            if(!firstFolder.exists()) {
+                System.out.println("created folder " + firstFolder.getPath());
+                firstFolder.mkdirs();
+            }
+
+            byte[] buffer = new byte[1024];
+            ZipInputStream zis = new ZipInputStream(new FileInputStream(zipPath));
+            ZipEntry zipEntry = zis.getNextEntry();
+            while (zipEntry != null) {
+                File newFile = newFile(folderDestino, zipEntry);
+                boolean isDirectory;
+                try {
+                    isDirectory = zipEntry.isDirectory();
+                } catch (Throwable e) {
+                    System.out.println("Error checking if entry is directory");
+                    throw new Exception ("Error checking if entry is directory");
+                }
+                if(!isDirectory) {
+                    // Es un archivo ya que acaba por .xxx
+                    FileOutputStream fos = new FileOutputStream(newFile);
+                    int len;
+                    while ((len = zis.read(buffer)) > 0) {
+                        fos.write(buffer, 0, len);
+                    }
+                    fos.close();
+                    System.out.println("extracted file " + zipEntry.getName());
+                } else {
+                   // Es una carpeta
+                    String folder = newFile.getPath();
+                    try {
+                        File folderZip = new File(folder);
+                        if (!folderZip.exists()) {
+                            System.out.println("folder created " + folderZip.getPath());
+                            folderZip.mkdirs();
+                        }
+                    } catch (Throwable e) {
+                        System.out.println("Error creating folder " + folder + ". " + e);
+                        throw new Exception("Error creating folder " + folder);
+                    }
+                }
+                zipEntry = zis.getNextEntry();
+            }
+            zis.closeEntry();
+            zis.close();
+            System.out.println("### END extractZip ###");
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
 
-        // Launch JAR
-        String rutaJarMainApp = getAppDataDirLocal((AppDirName + "\\" + JarName));
-        Runtime.getRuntime().exec("java -jar " + rutaJarMainApp);
+    /**
+     * Method for unziping with java
+     * @param destinationDir destino
+     * @param zipEntry zip
+     * @return File
+     * @throws IOException Excepcion
+     */
+    public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+        File destFile = new File(destinationDir, zipEntry.getName());
+
+        String destDirPath = destinationDir.getCanonicalPath();
+        String destFilePath = destFile.getCanonicalPath();
+
+        if (!destFilePath.startsWith(destDirPath + File.separator)) {
+            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+        }
+
+        return destFile;
     }
 
     /**
      * Copies the default main jar into place for initial run.
      */
-    private static void copyDefaultMainJar() throws IOException {
-        // Get main jar from local
-        File jarLocal = getAppFile(JarName);
+    private static void copyFilesToLocal() throws IOException {
+        System.out.println("### BEGIN copyFilesToLocal ###");
+        // Check main zip app
+        File zipLocal = getAppFile(zipName);
+
+        // Folder zip
+        File folderZipLocal = getAppFile(zipNameFolder);
 
         // Online version || Note: It takes about 5-10 min to refresh the version when you upload a new version.txt
         URL onlineVersionUrl = new URL(versionOnlineUrl);
         HttpURLConnection onlineVersionHttp = (HttpURLConnection) onlineVersionUrl.openConnection();
         InputStream onlineVersionStream = onlineVersionHttp.getInputStream();
+        System.out.println("inputStream from " + onlineVersionUrl + " downloaded");
         String versionOnline = getStringFromStream(onlineVersionStream);
 
         File versionLocalFile = new File(getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
-
         if(!versionLocalFile.exists()) {
             // Get online version if not exist
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
@@ -92,36 +203,71 @@ public class AppLoader {
         String pathEx = getAppDataDirLocal(AppDirName + "\\" + versionLocalPath);
         String versionLocal = readFile(pathEx);
 
-
         // We copy online file to local if it doesnt exist or it's an old version
-        if (!jarLocal.exists()) {
-            downloadFileToLocal(JarURL, JarName);
+        if (!zipLocal.exists()) {
+            // Delete folderZip local
+            if(folderZipLocal.exists()) {
+                deleteDirectory(folderZipLocal);
+            }
+            // Download online zip
+            downloadFileToLocal(zipUrl, zipName);
+            // Unzip online zip
+            extractZip();
         } else if(!versionLocal.equals(versionOnline)) {
-            // Delete local jar
-            jarLocal.delete();
-            // Download online jar
-            downloadFileToLocal(JarURL, JarName);
+            // Delete folderZip local
+            deleteDirectory(folderZipLocal);
+            // Delete local zip
+            zipLocal.delete();
             // Delete local version
             versionLocalFile.delete();
+            // Download online zip
+            downloadFileToLocal(zipUrl, zipName);
+            // Unzip online zip
+            extractZip();
             // Download local version
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
+        } else if(zipLocal.exists() && !folderZipLocal.exists()) {
+            extractZip();
         }
+        System.out.println("### END copyFilesToLocal ###");
     }
 
+    /*
+     * Right way to delete a non empty directory in Java
+     */
+    public static boolean deleteDirectory(File dir) {
+        System.out.println("### BEGIN deleteDirectory ###");
+        if (dir.isDirectory()) {
+            File[] children = dir.listFiles();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDirectory(children[i]);
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        // either file or an empty directory
+        System.out.println("removing file or directory : " + dir.getName());
+        System.out.println("### END deleteDirectory ###");
+        return dir.delete();
+    }
 
     /**
      * download an online file to local
      */
     private static void downloadFileToLocal(String url, String file) {
+        System.out.println("### BEGIN downloadFileToLocal url= " + url + ", file= " + file + " ###");
         try {
             URL onlineFileUrl = new URL(url);
             HttpURLConnection onlineFileHttp = (HttpURLConnection) onlineFileUrl.openConnection();
             InputStream onlineFileStream = onlineFileHttp.getInputStream();
             String path = getAppDataDirLocal(AppDirName) + "\\" + file;
             Files.copy(onlineFileStream, Paths.get(path));
+            System.out.println("### END downloadFileToLocal ###");
         } catch (Throwable e ) {
             e.printStackTrace();
         }
+
     }
 
     /**
@@ -130,6 +276,7 @@ public class AppLoader {
      * @return String
      */
     private static String getStringFromStream(InputStream inputStream) {
+        System.out.println("### BEGIN getStringFromStream ###");
         if (inputStream != null) {
             Writer writer = new StringWriter();
 
@@ -149,7 +296,10 @@ public class AppLoader {
                     e.printStackTrace();
                 }
             }
-            return writer.toString();
+            String result = writer.toString();
+            System.out.println("result= " + result);
+            System.out.println("### END getStringFromStream ###");
+            return result;
         } else {
             return "No Contents";
         }
@@ -162,6 +312,7 @@ public class AppLoader {
      * @return String file content
      */
     private static String readFile(String path) {
+        System.out.println("### BEGIN readFile path= " + path + " ###");
         // The name of the file to open.
         String fileName = path;
         String result = "";
@@ -189,6 +340,8 @@ public class AppLoader {
         } catch (IOException ex) {
             System.out.println("Error reading file '" + fileName + "'");
         }
+        System.out.println("result= " + result);
+        System.out.println("### END readFile ###");
         return result;
     }
 
