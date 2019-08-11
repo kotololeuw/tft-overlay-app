@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="tft-overlay-core:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/tft_overlay_core_jar</output-path>
+    <root id="archive" name="tft-overlay-core.jar">
+      <element id="module-output" name="tft-overlay-core" />
+    </root>
+  </artifact>
+</component>

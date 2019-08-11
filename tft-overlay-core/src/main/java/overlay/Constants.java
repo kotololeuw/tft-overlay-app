@@ -25,6 +25,9 @@ public class Constants {
     public static final String ORIGINS_1 = "origins1";
     public static final String META = "meta";
     public static final String META_2 = "meta2";
+    public static final String META_3 = "meta3";
+    public static final String ITEMS = "items";
+    public static final String EXIT = "exit";
 
     // Rutas imagenes items simples
     public static final String RUTA_ITEM_BF_ICON = "/Propias/objetos-simples/BF.png";
@@ -39,6 +42,8 @@ public class Constants {
     public static final String RUTA_ORIGINS_ICON = "/Propias/ORIGINS.png";
     public static final String RUTA_KEYBINDINGS_ICON = "/Propias/KEYBINDINGS_ICON.png";
     public static final String RUTA_META_ICON = "/Propias/CARROUSEL.png";
+    public static final String RUTA_ITEMS_ICON = "/Propias/items_icon.jpg";
+    public static final String RUTA_EXIT_ICON = "/Propias/exit.png";
 
     // Rutas imagenes items combinados
     public static final String RUTA_PROPIA_BF = "/Propias/BF.png";
@@ -55,4 +60,6 @@ public class Constants {
     public static final String RUTA_PROPIA_ORIGINS_1 = "/Propias/ORIGINS-1.png";
     public static final String RUTA_PROPIA_META = "/Propias/META.png";
     public static final String RUTA_PROPIA_META_2 = "/Propias/META-2.png";
+    public static final String RUTA_PROPIA_META_3 = "/Propias/META-3.png";
+    public static final String RUTA_PROPIA_ITEMS = "/Propias/items-carry.jpg";
 }

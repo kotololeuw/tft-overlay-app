@@ -18,6 +18,15 @@ public class HoverButtonMouseListener extends MouseAdapter {
     }
 
     @Override
+    public void mouseClicked(MouseEvent e) {
+        // limpiamos los componentes del jframe de informacion adicional
+        borrarComponentesDeJframe();
+        if (btnName.equals(Constants.EXIT)) {
+            System.exit(0);
+        }
+    }
+
+    @Override
     public void mouseEntered(MouseEvent e) {
         // limpiamos los componentes del jframe de informacion adicional
         borrarComponentesDeJframe();
@@ -58,11 +67,17 @@ public class HoverButtonMouseListener extends MouseAdapter {
         if (btnName.equals(Constants.ORIGINS_1)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_ORIGINS_1, 800, 930, new Color(6, 14, 33));
         }
+        if (btnName.equals(Constants.ITEMS)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_ITEMS, 960, 530, new Color(18, 30, 55));
+        }
         if (btnName.equals(Constants.META)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_META, 1150, 700, new Color(34, 35, 37));
         }
         if (btnName.equals(Constants.META_2)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_META_2, 820, 530, new Color(18, 30, 55));
+        }
+        if (btnName.equals(Constants.META_3)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_META_3, 820, 750, new Color(18, 30, 55));
         }
     }
 
@@ -121,6 +136,14 @@ public class HoverButtonMouseListener extends MouseAdapter {
             borrarComponentesDeJframe();
         }
         if (btnName.equals(Constants.META_2)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.META_3)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.ITEMS)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
