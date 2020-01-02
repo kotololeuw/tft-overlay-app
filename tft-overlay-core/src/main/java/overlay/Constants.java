@@ -19,13 +19,10 @@ public class Constants {
     public static final String ITEM_CLOAK = "itemCloak";
     public static final String ITEM_BELT = "itemBelt";
     public static final String ITEM_SPATULA = "itemSpatula";
-    public static final String TIERS = "tiers";
+    public static final String ITEM_GAUNTLET = "itemGauntlet";
     public static final String KEYBINDINGS = "keybindings";
-    public static final String HYPED_TIER_LIST = "hypedTierList";
     public static final String ORIGINS_1 = "origins1";
     public static final String META = "meta";
-    public static final String META_2 = "meta2";
-    public static final String META_3 = "meta3";
     public static final String ITEMS = "items";
     public static final String EXIT = "exit";
 
@@ -38,12 +35,11 @@ public class Constants {
     public static final String RUTA_ITEM_CLOAK_ICON = "/Propias/objetos-simples/Cape.png";
     public static final String RUTA_ITEM_BELT_ICON = "/Propias/objetos-simples/Belt.png";
     public static final String RUTA_ITEM_SPATULA_ICON = "/Propias/objetos-simples/Spatula.png";
-    public static final String RUTA_TIERS_ICON = "/Propias/TIERS.png";
-    public static final String RUTA_ORIGINS_ICON = "/Propias/ORIGINS.png";
-    public static final String RUTA_KEYBINDINGS_ICON = "/Propias/KEYBINDINGS_ICON.png";
-    public static final String RUTA_META_ICON = "/Propias/CARROUSEL.png";
-    public static final String RUTA_ITEMS_ICON = "/Propias/items_icon.jpg";
-    public static final String RUTA_EXIT_ICON = "/Propias/exit.png";
+    public static final String RUTA_ITEM_GAUNTLET_ICON = "/Propias/objetos-simples/Gauntlet.png";
+    public static final String RUTA_ORIGINS_ICON = "/Propias/objetos-simples/ORIGINS-ICON.png";
+    public static final String RUTA_KEYBINDINGS_ICON = "/Propias/objetos-simples/KEYBINDINGS_ICON.png";
+    public static final String RUTA_META_ICON = "/Propias/objetos-simples/META-ICON.png";
+    public static final String RUTA_EXIT_ICON = "/Propias/objetos-simples/EXIT-ICON.png";
 
     // Rutas imagenes items combinados
     public static final String RUTA_PROPIA_BF = "/Propias/BF.png";
@@ -53,13 +49,9 @@ public class Constants {
     public static final String RUTA_PROPIA_VEST = "/Propias/VEST.png";
     public static final String RUTA_PROPIA_CLOAK = "/Propias/CLOAK.png";
     public static final String RUTA_PROPIA_BELT = "/Propias/BELT.png";
+    public static final String RUTA_PROPIA_GAUNTLET = "/Propias/GAUNTLET.png";
     public static final String RUTA_PROPIA_SPATULA = "/Propias/SPATULA.png";
-    public static final String RUTA_PROPIA_TIERS = "/Propias/TIERS_CHANCE.png";
     public static final String RUTA_PROPIA_KEYBINDINGS = "/Propias/KEYBINDINGS.png";
-    public static final String RUTA_PROPIA_HYPED_TIER_LIST = "/Propias/HYPED_TIER_LIST.png";
-    public static final String RUTA_PROPIA_ORIGINS_1 = "/Propias/ORIGINS-1.png";
+    public static final String RUTA_PROPIA_ORIGINS_1 = "/Propias/ORIGINS.png";
     public static final String RUTA_PROPIA_META = "/Propias/META.png";
-    public static final String RUTA_PROPIA_META_2 = "/Propias/META-2.png";
-    public static final String RUTA_PROPIA_META_3 = "/Propias/META-3.png";
-    public static final String RUTA_PROPIA_ITEMS = "/Propias/items-carry.jpg";
 }
