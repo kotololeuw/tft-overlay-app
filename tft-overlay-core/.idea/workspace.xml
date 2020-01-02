@@ -7,38 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="924ed71e-d246-4923-890b-355241590a6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/ORIGINS-ICON.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bin/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/version.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cheatsheet-authors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images-author.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta-authors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/overlay/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/overlay/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/overlay/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/overlay/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/overlay/HoverButtonMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/overlay/HoverButtonMouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BELT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/BELT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BF.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/BF.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BOW.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/BOW.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/CARROUSEL.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/META-ICON.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/CLOAK.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/CLOAK.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/Cape.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/HYPED_TIER_LIST.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/KEYBINDINGS_ICON.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/KEYBINDINGS_ICON.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/META-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/META-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/META.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/META.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/ORIGINS-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/ORIGINS.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/ORIGINS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/ROD.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/ROD.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/SPATULA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/SPATULA.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/TEAR.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/TEAR.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/TIERS.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/TIERS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/TIERS_CHANCE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/VEST.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/VEST.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/EXIT-ICON.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/items-carry.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/items_icon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/artifacts/overlay_war_exploded.xml" />
@@ -216,7 +185,7 @@
     <session id="-25036851">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.25" value="1" />
@@ -413,7 +382,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="484" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577946691493" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577946733920" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -578,15 +547,15 @@
       <workItem from="1564914761343" duration="104000" />
       <workItem from="1565542757371" duration="2305000" />
       <workItem from="1577927370511" duration="2570000" />
-      <workItem from="1577943822738" duration="2237000" />
+      <workItem from="1577943822738" duration="2422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81992000" />
+    <option name="totallyTimeSpent" value="82177000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14658849" />
@@ -599,7 +568,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
