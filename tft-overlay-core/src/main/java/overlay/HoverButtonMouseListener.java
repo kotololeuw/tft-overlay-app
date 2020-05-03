@@ -31,41 +31,47 @@ public class HoverButtonMouseListener extends MouseAdapter {
         // limpiamos los componentes del jframe de informacion adicional
         borrarComponentesDeJframe();
 
+        final int CUADRO_ITEM_WIDTH = 275;
+        final int CUADRO_ITEM_HEIGHT = 650;
+
         if (btnName.equals(Constants.ITEM_BF)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_BF, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_BF, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_BOW)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_BOW, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_BOW, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_ROD)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_ROD, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_ROD, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_TEAR)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_TEAR, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_TEAR, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_VEST)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_VEST, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_VEST, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_CLOAK)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_CLOAK, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_CLOAK, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_BELT)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_BELT, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_BELT, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_GAUNTLET)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_GAUNTLET, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_GAUNTLET, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.ITEM_SPATULA)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, 250, 670, Color.BLACK);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, CUADRO_ITEM_WIDTH, CUADRO_ITEM_HEIGHT, Color.BLACK);
         }
         if (btnName.equals(Constants.KEYBINDINGS)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, 550, 340, new Color(6, 14, 33));
         }
         if (btnName.equals(Constants.ORIGINS_1)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_ORIGINS_1, 1235, 873, new Color(6, 14, 33));
+            mouseEnteredPanel(Constants.RUTA_PROPIA_ORIGINS_1, 1600, 765, new Color(6, 14, 33));
         }
         if (btnName.equals(Constants.META)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_META, 800, 700, new Color(34, 35, 37));
+            mouseEnteredPanel(Constants.RUTA_PROPIA_META, 925, 855, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SEASON)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SEASON, 800, 700, new Color(34, 35, 37));
         }
     }
 
@@ -116,6 +122,10 @@ public class HoverButtonMouseListener extends MouseAdapter {
             borrarComponentesDeJframe();
         }
         if (btnName.equals(Constants.ITEMS)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SEASON)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }

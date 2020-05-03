@@ -1,2 +1,5 @@
-https://docs.google.com/spreadsheets/d/1eEoQuc6X2HtPr3ZuT23rWhTrtU_y0mPGps8elzZzWK4/edit#gid=1409966595
-https://tftactics.gg/tierlist/team-comps
+META
+https://app.mobalytics.gg/tft/set3/team-comps
+
+ITEMS, ORIGINS
+https://progameguides.com/wp-content/uploads/2019/06/tft-ultimate-cheat-sheet-set3-10-9.png
