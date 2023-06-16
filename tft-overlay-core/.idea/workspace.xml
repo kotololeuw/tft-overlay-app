@@ -6,29 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924ed71e-d246-4923-890b-355241590a6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/ORIGINS.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/season.png" afterDir="false" />
+    <list default="true" id="924ed71e-d246-4923-890b-355241590a6e" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/tft-overlay-application-source.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bin/tft-overlay-core.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/tft-overlay-core.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bin/version.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../bin/version.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta-authors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/meta-authors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/overlay/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/overlay/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/overlay/HoverButtonMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/overlay/HoverButtonMouseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BELT.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/BELT.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BF.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/BF.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/BOW.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/BOW.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/CLOAK.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/CLOAK.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/GAUNTLET.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/GAUNTLET.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/KEYBINDINGS.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/KEYBINDINGS.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/META.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/META.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/ORIGINS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/ROD.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/ROD.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/SPATULA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/SPATULA.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/TEAR.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/TEAR.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Propias/VEST.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/VEST.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/artifacts/overlay_war_exploded.xml" />
@@ -217,15 +202,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="55" />
+          <entry key="Image" value="56" />
           <entry key="JAVA" value="11" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="940" />
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="41" />
         </counts>
       </usages-collector>
     </session>
@@ -244,9 +229,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/BOW.png">
           <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/meta-authors.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -352,9 +346,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/Propias/cheatsheet-authors.txt" />
         <option value="$PROJECT_DIR$/src/main/java/overlay/AppLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/overlay/Application.java" />
-        <option value="$PROJECT_DIR$/meta-authors.txt" />
         <option value="$PROJECT_DIR$/src/main/java/overlay/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/overlay/HoverButtonMouseListener.java" />
+        <option value="$PROJECT_DIR$/meta-authors.txt" />
       </list>
     </option>
   </component>
@@ -452,7 +446,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="484" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1588525071872" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1588525566855" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -619,12 +613,20 @@
       <workItem from="1565542757371" duration="2305000" />
       <workItem from="1577927370511" duration="2570000" />
       <workItem from="1577943822738" duration="2422000" />
-      <workItem from="1588522383759" duration="2514000" />
+      <workItem from="1588522383759" duration="3168000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1588525110347</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588525110347</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84691000" />
+    <option name="totallyTimeSpent" value="85345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -639,8 +641,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991323" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -700,6 +702,15 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -847,18 +858,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/CLOAK.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/ROD.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/TEAR.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meta-authors.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-simples/Belt.png">
       <provider selected="true" editor-type-id="images" />
@@ -924,8 +925,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/ROD.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Propias/objetos-combinados/BOW.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-authors.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

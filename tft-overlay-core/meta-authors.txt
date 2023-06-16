@@ -1,5 +1,0 @@
-META
-https://app.mobalytics.gg/tft/set3/team-comps
-
-ITEMS, ORIGINS
-https://progameguides.com/wp-content/uploads/2019/06/tft-ultimate-cheat-sheet-set3-10-9.png

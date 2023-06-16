@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/appLoader/appLoader.iml" filepath="$PROJECT_DIR$/appLoader/appLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tft-overlay-application-source.iml" filepath="$PROJECT_DIR$/.idea/tft-overlay-application-source.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tft-overlay-core/tft-overlay-core.iml" filepath="$PROJECT_DIR$/tft-overlay-core/tft-overlay-core.iml" />
     </modules>
   </component>
 </project>
