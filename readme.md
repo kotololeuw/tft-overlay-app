@@ -1,3 +1,8 @@
+# intellij
+Le daremos a abrir la ruta /tft-overlay-application-source - sino vemos las carpetas hacemos ->
+File -> Project Structure -> Modules -> + -> Import module -> C:\00PortablesBasicos\tft-overlay-application\tft-overlay-application-source\tft-overlay-core
+File -> Project Structure -> Modules -> + -> Import module -> C:\00PortablesBasicos\tft-overlay-application\tft-overlay-application-source\appLoader
+
 # app-loader
 app-loader -> app para la gestión y que se auto actualice del GIT
 Para lanzar / debugear la aplicación ejecutamos AppLoader.java en appLoader
