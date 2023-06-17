@@ -25,13 +25,13 @@ public class AppLoader {
     static final String firstFolderInZipToExtract = "tft-overlay-app";
 
     // The path to the update zip at website
-    static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-app.zip";
+    static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/tft-overlay-core/release/tft-overlay-app.zip";
 
     // Version local
     static final String versionLocalPath = "version.txt";
 
     // Version online
-    static final String versionOnlineUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/version.txt";
+    static final String versionOnlineUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/tft-overlay-core/release/version.txt";
 
     // Folder core local
     static final String folderCoreLocalName = "tft-overlay-app\\launch.bat";

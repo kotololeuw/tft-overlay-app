@@ -39,12 +39,12 @@ jre1.8.0_201\bin\java.exe -jar appLoader.jar (si queremos podemos añadir el com
 /tft-overlay-app/jre1.8.0_201/lib
 /tft-overlay-app/tft-overlay-core.jar
 /tft-overlay-app/launch.bat     ->  
-start jre1.8.0_201\bin\javaw.exe -jar tft-overlay-core.jar
+start %LOCALAPPDATA%\tft-overlay-app\tft-overlay-app\jre1.8.0_201\bin\javaw.exe -jar %LOCALAPPDATA%\tft-overlay-app\tft-overlay-app\tft-overlay-core.jar
 exit
 The javaw command is identical to java, except that javaw has no associated console window.
 
-# bin
-/bin es la carpeta release, de ahi se descargará la aplicación comprobando la versión en el fichero /bin/version.txt
+# release
+/tft-overlay-app/release es la carpeta release, de ahi se descargará la aplicación comprobando la versión en el fichero /release/version.txt
 el fichero .zip es la aplicacion tft-overlay-core, pero a nivel usuario debemos lanzar appLoader ya que es la que gestiona las versiones
 
 # Overlay made for Teamfight Tactics.
