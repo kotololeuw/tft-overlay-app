@@ -14,6 +14,7 @@ Si queremos generar otro, asegurarse de borrar la carpeta /out antes para evitar
 
 # tft-overlay-core
 tft-overlay-core -> el core de la aplicacion
+iconos de tamaño 64 x 64
 Para lanzar / debugear la aplicación ejecutamos Application.java en tft-overlay-core
 Para generar el artefacto ->
 File - project structure -> Artifacts -> + -> JAR -> tft-overlay-core:jar    
