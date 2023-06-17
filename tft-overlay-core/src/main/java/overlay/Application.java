@@ -31,7 +31,9 @@ public class Application extends JPanel {
 
             // Añadimos los botones de la barra principal
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ORIGINS_1, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_TOME_TRAITS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TOME_TRAITS, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_GOLDEN_EGG_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.GOLDEN_EGG, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_SPECIFIC_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SPECIFIC, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo);

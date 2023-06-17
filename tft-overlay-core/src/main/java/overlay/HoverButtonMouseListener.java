@@ -31,24 +31,23 @@ public class HoverButtonMouseListener extends MouseAdapter {
         // limpiamos los componentes del jframe de informacion adicional
         borrarComponentesDeJframe();
 
-        final int CUADRO_ITEM_WIDTH = 275;
-        final int CUADRO_ITEM_HEIGHT = 650;
-
-
         if (btnName.equals(Constants.ITEM_SPATULA)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, 500, 755, Color.BLACK);
         }
         if (btnName.equals(Constants.KEYBINDINGS)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, 550, 340, new Color(6, 14, 33));
         }
-        if (btnName.equals(Constants.ORIGINS_1)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_ORIGINS_1, 1600, 765, new Color(6, 14, 33));
+        if (btnName.equals(Constants.SET_SPECIFIC)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SPECIFIC, 1450, 825, new Color(6, 14, 33));
         }
         if (btnName.equals(Constants.CHAMPION_POOL)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, 925, 855, new Color(34, 35, 37));
+            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, 750, 600, new Color(34, 35, 37));
         }
-        if (btnName.equals(Constants.SEASON)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SEASON, 800, 700, new Color(34, 35, 37));
+        if (btnName.equals(Constants.GOLDEN_EGG)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, 750, 600, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.TOME_TRAITS)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_TOME_TRAITS, 1000, 200, new Color(34, 35, 37));
         }
     }
 
@@ -63,7 +62,7 @@ public class HoverButtonMouseListener extends MouseAdapter {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
-        if (btnName.equals(Constants.ORIGINS_1)) {
+        if (btnName.equals(Constants.SET_SPECIFIC)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
@@ -71,7 +70,11 @@ public class HoverButtonMouseListener extends MouseAdapter {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
-        if (btnName.equals(Constants.SEASON)) {
+        if (btnName.equals(Constants.GOLDEN_EGG)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.TOME_TRAITS)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
