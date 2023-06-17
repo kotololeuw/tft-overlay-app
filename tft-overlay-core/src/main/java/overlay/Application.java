@@ -1,7 +1,7 @@
 package overlay;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class Application extends JPanel {
 
@@ -30,18 +30,10 @@ public class Application extends JPanel {
             addDragEventToJframe(jframeButtons, jframeAdditionalInfo);
 
             // Añadimos los botones de la barra principal
-            createButtonMainBar(Constants.RUTA_ITEM_BF_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_BF, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_BOW_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_BOW, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_ROD_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_ROD, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_TEAR_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_TEAR, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_VEST_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_VEST, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_CLOAK_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_CLOAK, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_BELT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_BELT, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_ITEM_GAUNTLET_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_GAUNTLET, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_ORIGINS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ORIGINS_1, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_META_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.META, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo);
 
             // Pack jframe
