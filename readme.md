@@ -3,6 +3,12 @@ Le daremos a abrir la ruta /tft-overlay-application-source - sino vemos las carp
 File -> Project Structure -> Modules -> + -> Import module -> C:\00PortablesBasicos\tft-overlay-application\tft-overlay-application-source\tft-overlay-core
 File -> Project Structure -> Modules -> + -> Import module -> C:\00PortablesBasicos\tft-overlay-application\tft-overlay-application-source\appLoader
 
+Ir a File -> Project Structure -> Modules -> y marcar ->
+Module -> tft-overlay-core -> src -> main -> java
+Resources -> tft-overlay-core -> src -> main -> resources 
+Module -> appLoader -> src -> main -> java 
+Resources -> appLoader -> src -> main -> -> resources
+
 # app-loader
 app-loader -> app para la gestión y que se auto actualice del GIT
 Para lanzar / debugear la aplicación ejecutamos AppLoader.java en appLoader
