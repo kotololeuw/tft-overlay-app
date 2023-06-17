@@ -12,6 +12,10 @@ Vamos a Build -> Build Artifacts -> tft-overlay-core:jar -> Build
 Si queremos generar otro, asegurarse borrar el anterior primero para prevenir
 Este JAR lo copiaremos al zip de bin/tft-overlay-core.zip
 
+
+/bin es la carpeta release, de ahi se descargará la aplicación comprobando la versión en el fichero /bin/version.txt
+
+
 # Overlay made for Teamfight Tactics.
 - It helps you with item building and meta comps without having to alt tab or check a second monitor.
 - It's made with hover because if you click you would have fps drops since you would be changing applications

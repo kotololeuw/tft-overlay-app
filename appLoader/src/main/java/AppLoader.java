@@ -85,7 +85,7 @@ public class AppLoader {
         String rutaApp = getAppDataDirLocal((AppDirName + "\\" + folderCoreLocalName));
         File executeApp = new File(rutaApp);
         if(executeApp.exists()) {
-            System.out.println("rutaApp= " + rutaApp);
+            System.out.println("launching rutaApp= " + rutaApp);
             Runtime.getRuntime().exec(rutaApp);
         } else {
             System.out.println("Application does not exist");
@@ -196,7 +196,10 @@ public class AppLoader {
         File versionLocalFile = new File(getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
         if(!versionLocalFile.exists()) {
             // Get online version if not exist
+            System.out.println("local file not exist -> " +  getAppDataDirLocal(AppDirName + "\\" + versionLocalPath + ", download it"));
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
+        } else {
+            System.out.println("local file exist -> " +  getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
         }
 
         // Local version
@@ -205,6 +208,7 @@ public class AppLoader {
 
         // We copy online file to local if it doesnt exist or it's an old version
         if (!zipLocal.exists()) {
+            System.out.println("!zipLocal.exists()");
             // Delete folderZip local
             if(folderZipLocal.exists()) {
                 deleteDirectory(folderZipLocal);
@@ -214,6 +218,7 @@ public class AppLoader {
             // Unzip online zip
             extractZip();
         } else if(!versionLocal.equals(versionOnline)) {
+            System.out.println("!versionLocal.equals(versionOnline)");
             // Delete folderZip local
             deleteDirectory(folderZipLocal);
             // Delete local zip
@@ -227,7 +232,10 @@ public class AppLoader {
             // Download local version
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         } else if(zipLocal.exists() && !folderZipLocal.exists()) {
+            System.out.println("(zipLocal.exists() && !folderZipLocal.exists()");
             extractZip();
+        } else {
+            System.out.println("app up to date, no actions required");
         }
         System.out.println("### END copyFilesToLocal ###");
     }
@@ -236,7 +244,7 @@ public class AppLoader {
      * Right way to delete a non empty directory in Java
      */
     public static boolean deleteDirectory(File dir) {
-        System.out.println("### BEGIN deleteDirectory ###");
+        System.out.println("### BEGIN deleteDirectory dir= " + dir + " ###");
         if (dir.isDirectory()) {
             File[] children = dir.listFiles();
             for (int i = 0; i < children.length; i++) {
@@ -248,7 +256,7 @@ public class AppLoader {
         }
         // either file or an empty directory
         System.out.println("removing file or directory : " + dir.getName());
-        System.out.println("### END deleteDirectory ###");
+        System.out.println("### END deleteDirectory dir= " + dir + " ###");
         return dir.delete();
     }
 
