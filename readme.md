@@ -1,5 +1,16 @@
 # Building project
+app-loader -> app para la gestión y que se auto actualice del GIT
+Para lanzar / debugear la aplicación ejecutamos AppLoader.java en appLoader
 
+
+tft-overlay-core -> app en cuestión
+Para lanzar / debugear la aplicación ejecutamos Application.java en tft-overlay-core
+Para generar el artefacto ->
+File - project structure -> Artifacts -> + -> JAR -> tft-overlay-core:jar    
+   -> C:\00PortablesBasicos\tft-overlay-application\tft-overlay-application-source\out\artifacts\tft_overlay_core_jar
+Vamos a Build -> Build Artifacts -> tft-overlay-core:jar -> Build
+Si queremos generar otro, asegurarse borrar el anterior primero para prevenir
+Este JAR lo copiaremos al zip de bin/tft-overlay-core.zip
 
 # Overlay made for Teamfight Tactics.
 - It helps you with item building and meta comps without having to alt tab or check a second monitor.
