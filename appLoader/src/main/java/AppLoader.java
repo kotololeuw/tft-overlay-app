@@ -13,19 +13,19 @@ import java.util.zip.ZipInputStream;
 public class AppLoader {
 
     // The App directory
-    static final String AppDirName = "appLoader";
+    static final String AppDirName = "tft-overlay-app";
 
     // The main application zip name
-    static final String zipName = "tft-overlay-core.zip";
+    static final String zipName = "tft-overlay-app.zip";
 
     // The main application zip folder
-    static final String zipNameFolder = "tft-overlay-core";
+    static final String zipNameFolder = "tft-overlay-app";
 
     // First folder in the zip to extract
-    static final String firstFolderInZipToExtract = "tft-overlay-core";
+    static final String firstFolderInZipToExtract = "tft-overlay-app";
 
     // The path to the update zip at website
-    static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-core.zip";
+    static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/tft-overlay-app.zip";
 
     // Version local
     static final String versionLocalPath = "version.txt";
@@ -34,7 +34,7 @@ public class AppLoader {
     static final String versionOnlineUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/bin/version.txt";
 
     // Folder core local
-    static final String folderCoreLocalName = "tft-overlay-core\\tft-overlay-core.exe";
+    static final String folderCoreLocalName = "tft-overlay-app\\launch.bat";
 
     /**
      * Main method - reinvokes main1() on Swing thread in exception handler.
@@ -85,6 +85,7 @@ public class AppLoader {
         String rutaApp = getAppDataDirLocal((AppDirName + "\\" + folderCoreLocalName));
         File executeApp = new File(rutaApp);
         if(executeApp.exists()) {
+            // launching rutaApp= C:\Users\Usuario\AppData\Local\appLoader\tft-overlay-core\tft-overlay-core.exe
             System.out.println("launching rutaApp= " + rutaApp);
             Runtime.getRuntime().exec(rutaApp);
         } else {
