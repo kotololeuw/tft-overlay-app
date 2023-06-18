@@ -30,6 +30,15 @@ public class Application extends JPanel {
             addDragEventToJframe(jframeButtons, jframeAdditionalInfo);
 
             // Añadimos los botones de la barra principal
+            createButtonMainBar(Constants.RUTA_SET_UNO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_UNO, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_DOS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOS, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_TRES_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRES, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_CUATRO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CUATRO, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_CINCO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CINCO, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_SEIS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SEIS, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_SIETE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SIETE, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_OCHO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_OCHO, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_NUEVE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_NUEVE, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_TOME_TRAITS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TOME_TRAITS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_GOLDEN_EGG_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.GOLDEN_EGG, jframeAdditionalInfo);

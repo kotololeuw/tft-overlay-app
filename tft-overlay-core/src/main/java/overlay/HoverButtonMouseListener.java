@@ -44,10 +44,38 @@ public class HoverButtonMouseListener extends MouseAdapter {
             mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, 750, 600, new Color(34, 35, 37));
         }
         if (btnName.equals(Constants.GOLDEN_EGG)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, 750, 600, new Color(34, 35, 37));
+            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, 600, 450, new Color(34, 35, 37));
         }
         if (btnName.equals(Constants.TOME_TRAITS)) {
             mouseEnteredPanel(Constants.RUTA_PROPIA_TOME_TRAITS, 1000, 200, new Color(34, 35, 37));
+        }
+        // Especifico SET
+        if (btnName.equals(Constants.SET_UNO)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_UNO, 740, 410, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_DOS)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOS, 980, 420, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_TRES)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRES, 1430, 800, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_CUATRO)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CUATRO, 1380, 800, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_CINCO)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CINCO, 760, 430, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_SEIS)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SEIS, 730, 410, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_SIETE)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SIETE, 1220, 810, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_OCHO)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_OCHO, 1570, 830, new Color(34, 35, 37));
+        }
+        if (btnName.equals(Constants.SET_NUEVE)) {
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, 740, 410, new Color(34, 35, 37));
         }
     }
 
@@ -75,6 +103,43 @@ public class HoverButtonMouseListener extends MouseAdapter {
             borrarComponentesDeJframe();
         }
         if (btnName.equals(Constants.TOME_TRAITS)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        // Especifico SET
+        if (btnName.equals(Constants.SET_UNO)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_DOS)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_TRES)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_CUATRO)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_CINCO)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_SEIS)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_SIETE)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_OCHO)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_NUEVE)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
