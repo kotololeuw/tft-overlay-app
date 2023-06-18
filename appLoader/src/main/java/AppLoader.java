@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.*;
-import java.net.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
@@ -193,25 +194,33 @@ public class AppLoader {
         InputStream onlineVersionStream = onlineVersionHttp.getInputStream();
         System.out.println("inputStream from " + onlineVersionUrl + " downloaded");
         String versionOnline = getStringFromStream(onlineVersionStream);
+        if (versionOnline != null) {
+            versionOnline = versionOnline.trim().replaceAll(" ", "").replaceAll("\n", "").replaceAll("\r", "");
+            System.out.println("versionOnline= " + versionOnline);
+        }
 
         File versionLocalFile = new File(getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
-        if(!versionLocalFile.exists()) {
+        if (!versionLocalFile.exists()) {
             // Get online version if not exist
-            System.out.println("local file not exist -> " +  getAppDataDirLocal(AppDirName + "\\" + versionLocalPath + ", download it"));
+            System.out.println("local file not exist -> " + getAppDataDirLocal(AppDirName + "\\" + versionLocalPath + ", download it"));
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         } else {
-            System.out.println("local file exist -> " +  getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
+            System.out.println("local file exist -> " + getAppDataDirLocal(AppDirName + "\\" + versionLocalPath));
         }
 
         // Local version
         String pathEx = getAppDataDirLocal(AppDirName + "\\" + versionLocalPath);
         String versionLocal = readFile(pathEx);
+        if (versionLocal != null) {
+            versionLocal = versionLocal.trim().replaceAll(" ", "").replaceAll("\n", "").replaceAll("\r", "");
+            System.out.println("versionLocal= " + versionLocal);
+        }
 
         // We copy online file to local if it doesnt exist or it's an old version
         if (!zipLocal.exists()) {
             System.out.println("!zipLocal.exists()");
             // Delete folderZip local
-            if(folderZipLocal.exists()) {
+            if (folderZipLocal.exists()) {
                 deleteDirectory(folderZipLocal);
             }
             // Download online zip
@@ -219,7 +228,7 @@ public class AppLoader {
             // Unzip online zip
             extractZip();
         } else if(!versionLocal.equals(versionOnline)) {
-            System.out.println("!versionLocal.equals(versionOnline)");
+            System.out.println("!versionLocal.equals(versionOnline) - versionLocal=\"" + versionLocal + "\", versionOnline=\"" + versionOnline + "\"");
             // Delete folderZip local
             deleteDirectory(folderZipLocal);
             // Delete local zip
@@ -285,7 +294,6 @@ public class AppLoader {
      * @return String
      */
     private static String getStringFromStream(InputStream inputStream) {
-        System.out.println("### BEGIN getStringFromStream ###");
         if (inputStream != null) {
             Writer writer = new StringWriter();
 
@@ -306,8 +314,6 @@ public class AppLoader {
                 }
             }
             String result = writer.toString();
-            System.out.println("result= " + result);
-            System.out.println("### END getStringFromStream ###");
             return result;
         } else {
             return "No Contents";
@@ -349,7 +355,6 @@ public class AppLoader {
         } catch (IOException ex) {
             System.out.println("Error reading file '" + fileName + "'");
         }
-        System.out.println("result= " + result);
         System.out.println("### END readFile ###");
         return result;
     }
