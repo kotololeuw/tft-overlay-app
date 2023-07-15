@@ -1,9 +1,11 @@
 package overlay;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 public class HoverButtonMouseListener extends MouseAdapter {
 
@@ -30,53 +32,78 @@ public class HoverButtonMouseListener extends MouseAdapter {
     public void mouseEntered(MouseEvent e) {
         // limpiamos los componentes del jframe de informacion adicional
         borrarComponentesDeJframe();
-
+        Color defaultColor = new Color(34, 35, 37);
         if (btnName.equals(Constants.ITEM_SPATULA)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, 500, 755, Color.BLACK);
+            BufferedImage imageSpatula = getImageFromProject(Constants.RUTA_PROPIA_SPATULA);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, imageSpatula.getWidth(), imageSpatula.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.KEYBINDINGS)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, 550, 340, new Color(6, 14, 33));
+            BufferedImage imageKeybindings = getImageFromProject(Constants.RUTA_PROPIA_KEYBINDINGS);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, imageKeybindings.getWidth(), imageKeybindings.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_SPECIFIC)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SPECIFIC, 1450, 825, new Color(6, 14, 33));
+            BufferedImage imageSetSpecific = getImageFromProject(Constants.RUTA_PROPIA_SET_SPECIFIC);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SPECIFIC, imageSetSpecific.getWidth(), imageSetSpecific.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.CHAMPION_POOL)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, 750, 600, new Color(34, 35, 37));
+            BufferedImage imageChampionPool = getImageFromProject(Constants.RUTA_PROPIA_CHAMPION_POOL);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, imageChampionPool.getWidth(), imageChampionPool.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.GOLDEN_EGG)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, 600, 450, new Color(34, 35, 37));
+            BufferedImage imageGoldenEgg = getImageFromProject(Constants.RUTA_PROPIA_GOLDEN_EGG);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, imageGoldenEgg.getWidth(), imageGoldenEgg.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.TOME_TRAITS)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_TOME_TRAITS, 980, 900, new Color(34, 35, 37));
+            BufferedImage imageTomeTraits = getImageFromProject(Constants.RUTA_PROPIA_TOME_TRAITS);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_TOME_TRAITS, imageTomeTraits.getWidth(), imageTomeTraits.getHeight(), defaultColor);
         }
         // Especifico SET
         if (btnName.equals(Constants.SET_UNO)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_UNO, 1760, 650, new Color(34, 35, 37));
+            BufferedImage imageSetUno = getImageFromProject(Constants.RUTA_PROPIA_SET_UNO);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_UNO, imageSetUno.getWidth(), imageSetUno.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_DOS)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOS, 1820, 810, new Color(34, 35, 37));
+            BufferedImage imageSetDos = getImageFromProject(Constants.RUTA_PROPIA_SET_DOS);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOS, imageSetDos.getWidth(), imageSetDos.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_TRES)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRES, 1470, 810, new Color(34, 35, 37));
+            BufferedImage imageSetTres = getImageFromProject(Constants.RUTA_PROPIA_SET_TRES);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRES, imageSetTres.getWidth(), imageSetTres.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_CUATRO)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CUATRO, 1380, 800, new Color(34, 35, 37));
+            BufferedImage imageSetCuatro = getImageFromProject(Constants.RUTA_PROPIA_SET_CUATRO);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CUATRO, imageSetCuatro.getWidth(), imageSetCuatro.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_CINCO)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CINCO, 760, 430, new Color(34, 35, 37));
+            BufferedImage imageSetCinco = getImageFromProject(Constants.RUTA_PROPIA_SET_CINCO);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CINCO, imageSetCinco.getWidth(), imageSetCinco.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_SEIS)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SEIS, 1360, 830, new Color(34, 35, 37));
+            BufferedImage imageSetSeis = getImageFromProject(Constants.RUTA_PROPIA_SET_SEIS);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SEIS, imageSetSeis.getWidth(), imageSetSeis.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_SIETE)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SIETE, 1220, 810, new Color(34, 35, 37));
+            BufferedImage imageSetSiete = getImageFromProject(Constants.RUTA_PROPIA_SET_SIETE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SIETE, imageSetSiete.getWidth(), imageSetSiete.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_OCHO)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_OCHO, 1570, 830, new Color(34, 35, 37));
+            BufferedImage imageSetOcho = getImageFromProject(Constants.RUTA_PROPIA_SET_OCHO);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_OCHO, imageSetOcho.getWidth(), imageSetOcho.getHeight(), defaultColor);
         }
         if (btnName.equals(Constants.SET_NUEVE)) {
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, 1490, 830, new Color(34, 35, 37));
+            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_NUEVE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
         }
+    }
+
+    private BufferedImage getImageFromProject(String path) {
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(Application.class.getResource(path));
+        } catch (Throwable e) {
+            System.out.println("no se ha encontrado la imagen en " + path);
+        }
+        return img;
     }
 
     @Override
