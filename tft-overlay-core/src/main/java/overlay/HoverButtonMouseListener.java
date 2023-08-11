@@ -94,6 +94,22 @@ public class HoverButtonMouseListener extends MouseAdapter {
             BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_NUEVE);
             mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
         }
+        if (btnName.equals(Constants.SET_DIEZ)) {
+            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_DIEZ);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DIEZ, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+        }
+        if (btnName.equals(Constants.SET_ONCE)) {
+            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_ONCE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_ONCE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+        }
+        if (btnName.equals(Constants.SET_DOCE)) {
+            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_DOCE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOCE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+        }
+        if (btnName.equals(Constants.SET_TRECE)) {
+            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_TRECE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRECE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+        }
     }
 
     private BufferedImage getImageFromProject(String path) {

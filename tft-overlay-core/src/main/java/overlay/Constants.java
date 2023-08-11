@@ -28,15 +28,20 @@ public class Constants {
     public static final String SET_SIETE = "setSiete";
     public static final String SET_OCHO = "setOcho";
     public static final String SET_NUEVE = "setNueve";
+    public static final String SET_DIEZ = "setDiez";
+    public static final String SET_ONCE = "setOnce";
+    public static final String SET_DOCE = "setDoce";
+    public static final String SET_TRECE = "setTrece";
 
     // Rutas imagenes iconos
-    public static final String RUTA_ITEM_SPATULA_ICON = "/Propias/iconos-objetos/Spatula.png";
-    public static final String RUTA_SET_SPECIFIC_ICON = "/Propias/iconos/base/SET-SPECIFIC-ICON.png";
-    public static final String RUTA_KEYBINDINGS_ICON = "/Propias/iconos/base/KEYBINDINGS-ICON.png";
-    public static final String RUTA_CHAMPION_POOL_ICON = "/Propias/iconos/base/CHAMPION-POOL-ICON.png";
-    public static final String RUTA_EXIT_ICON = "/Propias/iconos/base/EXIT-ICON.png";
-    public static final String RUTA_GOLDEN_EGG_ICON = "/Propias/iconos/base/GOLDEN-EGG-ICON.png";
-    public static final String RUTA_TOME_TRAITS_ICON = "/Propias/iconos/base/TOME-TRAITS-ICON.png";
+    public static final String RUTA_ITEM_SPATULA_ICON = "/iconos-objetos/Spatula.png";
+    public static final String RUTA_SET_SPECIFIC_ICON = "/iconos-default/SET-SPECIFIC-ICON.png";
+    public static final String RUTA_KEYBINDINGS_ICON = "/iconos-default/KEYBINDINGS-ICON.png";
+    public static final String RUTA_CHAMPION_POOL_ICON = "/iconos-default/CHAMPION-POOL-ICON.png";
+    public static final String RUTA_NOT_FOUND_X_ICON = "/iconos-default/X-ICON.png";
+    public static final String RUTA_EXIT_ICON = "/iconos-default/EXIT-ICON.png";
+    public static final String RUTA_GOLDEN_EGG_ICON = "/iconos-default/GOLDEN-EGG-ICON.png";
+    public static final String RUTA_TOME_TRAITS_ICON = "/iconos-default/TOME-TRAITS-ICON.png";
     // Especificos del SET
     public static final String RUTA_SET_UNO_ICON = "/Propias/iconos/SET-UNO-ICON.png";
     public static final String RUTA_SET_DOS_ICON = "/Propias/iconos/SET-DOS-ICON.png";
@@ -47,14 +52,18 @@ public class Constants {
     public static final String RUTA_SET_SIETE_ICON = "/Propias/iconos/SET-SIETE-ICON.png";
     public static final String RUTA_SET_OCHO_ICON = "/Propias/iconos/SET-OCHO-ICON.png";
     public static final String RUTA_SET_NUEVE_ICON = "/Propias/iconos/SET-NUEVE-ICON.png";
+    public static final String RUTA_SET_DIEZ_ICON = "/Propias/iconos/SET-DIEZ-ICON.png";
+    public static final String RUTA_SET_ONCE_ICON = "/Propias/iconos/SET-ONCE-ICON.png";
+    public static final String RUTA_SET_DOCE_ICON = "/Propias/iconos/SET-DOCE-ICON.png";
+    public static final String RUTA_SET_TRECE_ICON = "/Propias/iconos/SET-TRECE-ICON.png";
 
     // Rutas imagenes descripciones ampliadas
-    public static final String RUTA_PROPIA_SPATULA = "/Propias/descripcion-ampliada/base/SET-SPATULA.png";
-    public static final String RUTA_PROPIA_KEYBINDINGS = "/Propias/descripcion-ampliada/base/KEYBINDINGS.png";
-    public static final String RUTA_PROPIA_SET_SPECIFIC = "/Propias/descripcion-ampliada/base/SET-SPECIFIC.png";
-    public static final String RUTA_PROPIA_CHAMPION_POOL = "/Propias/descripcion-ampliada/base/CHAMPION-POOL.png";
-    public static final String RUTA_PROPIA_GOLDEN_EGG = "/Propias/descripcion-ampliada/base/GOLDEN-EGG.png";
-    public static final String RUTA_PROPIA_TOME_TRAITS = "/Propias/descripcion-ampliada/base/TOME-TRAITS.png";
+    public static final String RUTA_PROPIA_SPATULA = "/descripciones-default/SET-SPATULA.png";
+    public static final String RUTA_PROPIA_KEYBINDINGS = "/descripciones-default/KEYBINDINGS.png";
+    public static final String RUTA_PROPIA_SET_SPECIFIC = "/descripciones-default/SET-SPECIFIC.png";
+    public static final String RUTA_PROPIA_CHAMPION_POOL = "/descripciones-default/CHAMPION-POOL.png";
+    public static final String RUTA_PROPIA_GOLDEN_EGG = "/descripciones-default/GOLDEN-EGG.png";
+    public static final String RUTA_PROPIA_TOME_TRAITS = "/descripciones-default/TOME-TRAITS.png";
     // Especificos del SET
     public static final String RUTA_PROPIA_SET_UNO = "/Propias/descripcion-ampliada/SET-UNO.png";
     public static final String RUTA_PROPIA_SET_DOS = "/Propias/descripcion-ampliada/SET-DOS.png";
@@ -65,4 +74,8 @@ public class Constants {
     public static final String RUTA_PROPIA_SET_SIETE = "/Propias/descripcion-ampliada/SET-SIETE.png";
     public static final String RUTA_PROPIA_SET_OCHO = "/Propias/descripcion-ampliada/SET-OCHO.png";
     public static final String RUTA_PROPIA_SET_NUEVE = "/Propias/descripcion-ampliada/SET-NUEVE.png";
+    public static final String RUTA_PROPIA_SET_DIEZ = "/Propias/descripcion-ampliada/SET-DIEZ.png";
+    public static final String RUTA_PROPIA_SET_ONCE = "/Propias/descripcion-ampliada/SET-ONCE.png";
+    public static final String RUTA_PROPIA_SET_DOCE = "/Propias/descripcion-ampliada/SET-DOCE.png";
+    public static final String RUTA_PROPIA_SET_TRECE = "/Propias/descripcion-ampliada/SET-TRECE.png";
 }

@@ -39,12 +39,18 @@ public class Application extends JPanel {
             createButtonMainBar(Constants.RUTA_SET_SIETE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SIETE, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_SET_OCHO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_OCHO, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_SET_NUEVE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_NUEVE, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_DIEZ_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DIEZ, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_ONCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_ONCE, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_DOCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOCE, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_TRECE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRECE, jframeAdditionalInfo);
+
+            // Añadimos los botones de los iconos standard
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_TOME_TRAITS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TOME_TRAITS, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_GOLDEN_EGG_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.GOLDEN_EGG, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_SPECIFIC_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SPECIFIC, jframeAdditionalInfo);
+            // createButtonMainBar(Constants.RUTA_TOME_TRAITS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TOME_TRAITS, jframeAdditionalInfo);
+            // createButtonMainBar(Constants.RUTA_GOLDEN_EGG_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.GOLDEN_EGG, jframeAdditionalInfo);
+            // createButtonMainBar(Constants.RUTA_SET_SPECIFIC_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SPECIFIC, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
+            // createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo);
 
             // Pack jframe
@@ -112,25 +118,30 @@ public class Application extends JPanel {
      * @param jframeAdditionalInfo    jframe
      */
     private static void createButtonMainBar(String imgSrc, JFrame jframeButtons, int btnWidth, int btnHeight, String name, JFrame jframeAdditionalInfo) {
-        ImageIcon icon = new ImageIcon(Application.class.getResource(imgSrc));
-        JButton jbutton = new JButton();
-        jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
-        icon = resizeIcon(icon, btnWidth, btnHeight);
-        jbutton.setIcon(icon);
+        ImageIcon icon = null;
+        try {
+            icon = new ImageIcon(Application.class.getResource(imgSrc));
+            JButton jbutton = new JButton();
+            jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
+            icon = resizeIcon(icon, btnWidth, btnHeight);
+            jbutton.setIcon(icon);
 
-        // Nombre en caso de que necesitemos recuperarlo posteriormente
-        jbutton.setName(name);
+            // Nombre en caso de que necesitemos recuperarlo posteriormente
+            jbutton.setName(name);
 
-        // Añadimos espacio en el jframe para meter el boton
-        Dimension dimension = jframeButtons.getPreferredSize();
-        dimension.setSize(dimension.getWidth() + btnWidth, dimension.getHeight());
-        jframeButtons.setPreferredSize(dimension);
+            // Añadimos espacio en el jframe para meter el boton
+            Dimension dimension = jframeButtons.getPreferredSize();
+            dimension.setSize(dimension.getWidth() + btnWidth, dimension.getHeight());
+            jframeButtons.setPreferredSize(dimension);
 
-        // Añadimos la funcion HOVER
-        jbutton.addMouseListener(new HoverButtonMouseListener(jframeButtons, name, jframeAdditionalInfo));
+            // Añadimos la funcion HOVER
+            jbutton.addMouseListener(new HoverButtonMouseListener(jframeButtons, name, jframeAdditionalInfo));
 
-        // Lo añadimos al frame principal
-        jframeButtons.getRootPane().getContentPane().add(jbutton);
+            // Lo añadimos al frame principal
+            jframeButtons.getRootPane().getContentPane().add(jbutton);
+        } catch (Throwable e) {
+            System.out.println("icon not found " + imgSrc);
+        }
     }
 
     /**
