@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class HoverButtonMouseListener extends MouseAdapter {
 
@@ -116,10 +117,21 @@ public class HoverButtonMouseListener extends MouseAdapter {
         BufferedImage img = null;
         try {
             img = ImageIO.read(Application.class.getResource(path));
+            if (img != null && img.getWidth() > 1900) {
+                System.out.println("imagen superior a 1900 de width width= " + img.getWidth() + ", path= " + path
+                        + " || Establecer como maximo 1856 ancho x 850 de alto");
+            }
         } catch (Throwable e) {
             System.out.println("no se ha encontrado la imagen en " + path);
         }
         return img;
+    }
+
+    public BufferedImage resizeImage(BufferedImage originalImage, int targetWidth, int targetHeight) throws IOException {
+        Image resultingImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_DEFAULT);
+        BufferedImage outputImage = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB);
+        outputImage.getGraphics().drawImage(resultingImage, 0, 0, null);
+        return outputImage;
     }
 
     @Override

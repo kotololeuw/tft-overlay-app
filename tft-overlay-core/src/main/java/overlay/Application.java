@@ -30,6 +30,7 @@ public class Application extends JPanel {
             addDragEventToJframe(jframeButtons, jframeAdditionalInfo);
 
             // Añadimos los botones de la barra principal
+            System.out.println("Activar / desactivar botones en Application.java L33");
             createButtonMainBar(Constants.RUTA_SET_UNO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_UNO, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_SET_DOS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOS, jframeAdditionalInfo);
             createButtonMainBar(Constants.RUTA_SET_TRES_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRES, jframeAdditionalInfo);
