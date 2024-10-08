@@ -279,33 +279,34 @@ public class AppLoader {
     }
 
     public static void downloadImagesToLocal() {
-        String extension = extensionPng;
         String downloadRawParam = "?raw=true";
+        String urlBase = "https://github.com/kotololeuw/tft-overlay-app/blob/master/images";
+        String urlBaseIcono = "/iconos/";
+        String urlBaseDesc = "/descripcion-ampliada/";
         // icons
-        String urlBase = "https://github.com/kotololeuw/tft-overlay-app/blob/master/images/iconos/";
         String downloadParamName = "-ICON.png";
         for(int i=1;i<=12;i++) {
-            downloadImageFileToLocal(urlBase + i + downloadParamName + downloadRawParam, i + extension);
+            downloadImageFileToLocal(urlBase + urlBaseIcono + i + downloadParamName + downloadRawParam, i + downloadParamName);
         }
         String exit = "EXIT-ICON.png";
-        downloadImageFileToLocal(urlBase + exit + downloadRawParam, exit);
+        downloadImageFileToLocal(urlBase + urlBaseIcono + exit + downloadRawParam, exit);
         String championPool = "CHAMPION-POOL-ICON.png";
-        downloadImageFileToLocal(urlBase + championPool + downloadRawParam, championPool);
+        downloadImageFileToLocal(urlBase + urlBaseIcono + championPool + downloadRawParam, championPool);
         String fryingPan = "FRYING-PAN.png";
-        downloadImageFileToLocal(urlBase + fryingPan + downloadRawParam, fryingPan);
+        downloadImageFileToLocal(urlBase + urlBaseIcono + fryingPan + downloadRawParam, fryingPan);
         String spatula = "SPATULA.png";
-        downloadImageFileToLocal(urlBase + spatula + downloadRawParam, spatula);
+        downloadImageFileToLocal(urlBase + urlBaseIcono + spatula + downloadRawParam, spatula);
         // descriptions
         downloadParamName = "-DESC.png";
         for(int i=1;i<=12;i++) {
-            downloadImageFileToLocal(urlBase + i + downloadParamName + downloadRawParam, i + extension);
+            downloadImageFileToLocal(urlBase + urlBaseDesc + i + downloadParamName + downloadRawParam, i + downloadParamName);
         }
         String championPoolDesc = "CHAMPION-POOL-ICON-DESC.png";
-        downloadImageFileToLocal(urlBase + championPoolDesc + downloadRawParam, championPoolDesc);
+        downloadImageFileToLocal(urlBase + urlBaseDesc + championPoolDesc + downloadRawParam, championPoolDesc);
         String fryingPanDesc = "FRYING-PAN-DESC.png";
-        downloadImageFileToLocal(urlBase + fryingPanDesc + downloadRawParam, fryingPanDesc);
+        downloadImageFileToLocal(urlBase + urlBaseDesc + fryingPanDesc + downloadRawParam, fryingPanDesc);
         String spatulaDesc = "SPATULA-DESC.png";
-        downloadImageFileToLocal(urlBase + spatulaDesc + downloadRawParam, spatulaDesc);
+        downloadImageFileToLocal(urlBase + urlBaseDesc + spatulaDesc + downloadRawParam, spatulaDesc);
     }
 
     /*
