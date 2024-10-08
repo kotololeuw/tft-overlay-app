@@ -287,16 +287,25 @@ public class AppLoader {
         for(int i=1;i<=12;i++) {
             downloadImageFileToLocal(urlBase + i + downloadParamName + downloadRawParam, i + extension);
         }
-        String championPool = "CHAMPION-POOL-ICON.png";
-        downloadImageFileToLocal(urlBase + championPool + downloadRawParam, championPool);
         String exit = "EXIT-ICON.png";
         downloadImageFileToLocal(urlBase + exit + downloadRawParam, exit);
+        String championPool = "CHAMPION-POOL-ICON.png";
+        downloadImageFileToLocal(urlBase + championPool + downloadRawParam, championPool);
         String fryingPan = "FRYING-PAN.png";
         downloadImageFileToLocal(urlBase + fryingPan + downloadRawParam, fryingPan);
         String spatula = "SPATULA.png";
         downloadImageFileToLocal(urlBase + spatula + downloadRawParam, spatula);
         // descriptions
-
+        downloadParamName = "-DESC.png";
+        for(int i=1;i<=12;i++) {
+            downloadImageFileToLocal(urlBase + i + downloadParamName + downloadRawParam, i + extension);
+        }
+        String championPoolDesc = "CHAMPION-POOL-ICON-DESC.png";
+        downloadImageFileToLocal(urlBase + championPoolDesc + downloadRawParam, championPoolDesc);
+        String fryingPanDesc = "FRYING-PAN-DESC.png";
+        downloadImageFileToLocal(urlBase + fryingPanDesc + downloadRawParam, fryingPanDesc);
+        String spatulaDesc = "SPATULA-DESC.png";
+        downloadImageFileToLocal(urlBase + spatulaDesc + downloadRawParam, spatulaDesc);
     }
 
     /*
