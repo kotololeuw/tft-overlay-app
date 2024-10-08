@@ -2,8 +2,11 @@ package overlay;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class Application extends JPanel {
+
+    static final String AppDirNameWithImage = "tft-overlay-app/images/";
 
     /**
      * Metodo que define el color del background
@@ -29,30 +32,29 @@ public class Application extends JPanel {
             // Evento de raton de arrastrar por la pantalla
             addDragEventToJframe(jframeButtons, jframeAdditionalInfo);
 
+            // Ruta imagenes
+            String folderImagesPath = getAppDataDirLocalImages();
+
             // Añadimos los botones de la barra principal
             System.out.println("Activar / desactivar botones en Application.java L33");
-            createButtonMainBar(Constants.RUTA_SET_UNO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_UNO, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_DOS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOS, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_TRES_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRES, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_CUATRO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CUATRO, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_CINCO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CINCO, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_SEIS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SEIS, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_SIETE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SIETE, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_OCHO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_OCHO, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_NUEVE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_NUEVE, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_DIEZ_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DIEZ, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_ONCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_ONCE, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_DOCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOCE, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_SET_TRECE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRECE, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_SET_UNO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_UNO, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_DOS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOS, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_TRES_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_TRES, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_CUATRO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CUATRO, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_CINCO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_CINCO, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_SEIS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SEIS, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_SIETE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SIETE, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_OCHO_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_OCHO, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_NUEVE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_NUEVE, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_DIEZ_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DIEZ, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_ONCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_ONCE, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_SET_DOCE_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_DOCE, jframeAdditionalInfo, folderImagesPath);
 
             // Añadimos los botones de los iconos standard
-            createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo);
-            // createButtonMainBar(Constants.RUTA_TOME_TRAITS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.TOME_TRAITS, jframeAdditionalInfo);
-            // createButtonMainBar(Constants.RUTA_GOLDEN_EGG_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.GOLDEN_EGG, jframeAdditionalInfo);
-            // createButtonMainBar(Constants.RUTA_SET_SPECIFIC_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.SET_SPECIFIC, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo);
-            // createButtonMainBar(Constants.RUTA_KEYBINDINGS_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.KEYBINDINGS, jframeAdditionalInfo);
-            createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo);
+            createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_ITEM_FRYING_PAN_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_FRYING_PAN, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo, folderImagesPath);
 
             // Pack jframe
             jframeButtons.pack();
@@ -118,10 +120,12 @@ public class Application extends JPanel {
      * @param btnHeight altura boton
      * @param jframeAdditionalInfo    jframe
      */
-    private static void createButtonMainBar(String imgSrc, JFrame jframeButtons, int btnWidth, int btnHeight, String name, JFrame jframeAdditionalInfo) {
+    private static void createButtonMainBar(String imgSrc, JFrame jframeButtons, int btnWidth, int btnHeight, String name, JFrame jframeAdditionalInfo
+    , String imagePath) {
         ImageIcon icon = null;
         try {
-            icon = new ImageIcon(Application.class.getResource(imgSrc));
+            String fullImagePath = imagePath + imgSrc;
+            icon = new ImageIcon(fullImagePath);
             JButton jbutton = new JButton();
             jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
             icon = resizeIcon(icon, btnWidth, btnHeight);
@@ -214,5 +218,24 @@ public class Application extends JPanel {
         } else {
             System.out.println("Error loading image: " + imageIcon);
         }
+    }
+
+    static boolean isWindows = (System.getProperty("os.name")
+            .indexOf("Windows") >= 0);
+    static boolean isMac = (System.getProperty("os.name").indexOf("Mac OS X") >= 0);
+    public static String getAppDataDirLocalImages() {
+        // Get user home + AppDataDir (platform specific) + name (if provided)
+        String aName = AppDirNameWithImage;
+        String dir = System.getProperty("user.home");
+        if (isWindows) {
+            dir += File.separator + "AppData" + File.separator + "Local";
+        } else if (isMac) {
+            dir += File.separator + "Library" + File.separator
+                    + "Application Support";
+        }
+        if (aName != null) {
+            dir += File.separator + aName;
+        }
+        return dir;
     }
 }

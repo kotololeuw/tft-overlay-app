@@ -6,7 +6,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
 
 public class HoverButtonMouseListener extends MouseAdapter {
 
@@ -36,87 +44,76 @@ public class HoverButtonMouseListener extends MouseAdapter {
         Color defaultColor = new Color(34, 35, 37);
         if (btnName.equals(Constants.ITEM_SPATULA)) {
             BufferedImage imageSpatula = getImageFromProject(Constants.RUTA_PROPIA_SPATULA);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, imageSpatula.getWidth(), imageSpatula.getHeight(), defaultColor);
-        }
-        if (btnName.equals(Constants.KEYBINDINGS)) {
-            BufferedImage imageKeybindings = getImageFromProject(Constants.RUTA_PROPIA_KEYBINDINGS);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_KEYBINDINGS, imageKeybindings.getWidth(), imageKeybindings.getHeight(), defaultColor);
-        }
-        if (btnName.equals(Constants.SET_SPECIFIC)) {
-            BufferedImage imageSetSpecific = getImageFromProject(Constants.RUTA_PROPIA_SET_SPECIFIC);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SPECIFIC, imageSetSpecific.getWidth(), imageSetSpecific.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SPATULA, defaultColor, imageSpatula);
         }
         if (btnName.equals(Constants.CHAMPION_POOL)) {
             BufferedImage imageChampionPool = getImageFromProject(Constants.RUTA_PROPIA_CHAMPION_POOL);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, imageChampionPool.getWidth(), imageChampionPool.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_CHAMPION_POOL, defaultColor, imageChampionPool);
         }
-        if (btnName.equals(Constants.GOLDEN_EGG)) {
-            BufferedImage imageGoldenEgg = getImageFromProject(Constants.RUTA_PROPIA_GOLDEN_EGG);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_GOLDEN_EGG, imageGoldenEgg.getWidth(), imageGoldenEgg.getHeight(), defaultColor);
-        }
-        if (btnName.equals(Constants.TOME_TRAITS)) {
-            BufferedImage imageTomeTraits = getImageFromProject(Constants.RUTA_PROPIA_TOME_TRAITS);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_TOME_TRAITS, imageTomeTraits.getWidth(), imageTomeTraits.getHeight(), defaultColor);
+        if (btnName.equals(Constants.ITEM_FRYING_PAN)) {
+            BufferedImage imageFryingPan = getImageFromProject(Constants.RUTA_PROPIA_FRYING_PAN);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_FRYING_PAN, defaultColor, imageFryingPan);
         }
         // Especifico SET
         if (btnName.equals(Constants.SET_UNO)) {
             BufferedImage imageSetUno = getImageFromProject(Constants.RUTA_PROPIA_SET_UNO);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_UNO, imageSetUno.getWidth(), imageSetUno.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_UNO, defaultColor, imageSetUno);
         }
         if (btnName.equals(Constants.SET_DOS)) {
             BufferedImage imageSetDos = getImageFromProject(Constants.RUTA_PROPIA_SET_DOS);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOS, imageSetDos.getWidth(), imageSetDos.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOS, defaultColor, imageSetDos);
         }
         if (btnName.equals(Constants.SET_TRES)) {
             BufferedImage imageSetTres = getImageFromProject(Constants.RUTA_PROPIA_SET_TRES);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRES, imageSetTres.getWidth(), imageSetTres.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRES, defaultColor, imageSetTres);
         }
         if (btnName.equals(Constants.SET_CUATRO)) {
             BufferedImage imageSetCuatro = getImageFromProject(Constants.RUTA_PROPIA_SET_CUATRO);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CUATRO, imageSetCuatro.getWidth(), imageSetCuatro.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CUATRO, defaultColor, imageSetCuatro);
         }
         if (btnName.equals(Constants.SET_CINCO)) {
             BufferedImage imageSetCinco = getImageFromProject(Constants.RUTA_PROPIA_SET_CINCO);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CINCO, imageSetCinco.getWidth(), imageSetCinco.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_CINCO, defaultColor, imageSetCinco);
         }
         if (btnName.equals(Constants.SET_SEIS)) {
             BufferedImage imageSetSeis = getImageFromProject(Constants.RUTA_PROPIA_SET_SEIS);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SEIS, imageSetSeis.getWidth(), imageSetSeis.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SEIS, defaultColor, imageSetSeis);
         }
         if (btnName.equals(Constants.SET_SIETE)) {
             BufferedImage imageSetSiete = getImageFromProject(Constants.RUTA_PROPIA_SET_SIETE);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SIETE, imageSetSiete.getWidth(), imageSetSiete.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_SIETE, defaultColor, imageSetSiete);
         }
         if (btnName.equals(Constants.SET_OCHO)) {
             BufferedImage imageSetOcho = getImageFromProject(Constants.RUTA_PROPIA_SET_OCHO);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_OCHO, imageSetOcho.getWidth(), imageSetOcho.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_OCHO, defaultColor, imageSetOcho);
         }
         if (btnName.equals(Constants.SET_NUEVE)) {
             BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_NUEVE);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_NUEVE, defaultColor, imageSetNueve);
         }
         if (btnName.equals(Constants.SET_DIEZ)) {
-            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_DIEZ);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DIEZ, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+            BufferedImage imageSetDiez = getImageFromProject(Constants.RUTA_PROPIA_SET_DIEZ);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DIEZ, defaultColor, imageSetDiez);
         }
         if (btnName.equals(Constants.SET_ONCE)) {
-            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_ONCE);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_ONCE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+            BufferedImage imageSetOnce = getImageFromProject(Constants.RUTA_PROPIA_SET_ONCE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_ONCE, defaultColor, imageSetOnce);
         }
         if (btnName.equals(Constants.SET_DOCE)) {
-            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_DOCE);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOCE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
-        }
-        if (btnName.equals(Constants.SET_TRECE)) {
-            BufferedImage imageSetNueve = getImageFromProject(Constants.RUTA_PROPIA_SET_TRECE);
-            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_TRECE, imageSetNueve.getWidth(), imageSetNueve.getHeight(), defaultColor);
+            BufferedImage imageSetDoce = getImageFromProject(Constants.RUTA_PROPIA_SET_DOCE);
+            mouseEnteredPanel(Constants.RUTA_PROPIA_SET_DOCE, defaultColor, imageSetDoce);
         }
     }
 
     private BufferedImage getImageFromProject(String path) {
         BufferedImage img = null;
         try {
-            img = ImageIO.read(Application.class.getResource(path));
+            // Ruta imagenes
+            Application application = new Application();
+            String folderImagesPath = application.getAppDataDirLocalImages();
+            String fullPath = folderImagesPath + path;
+            File ficheroFull = new File(fullPath);
+            img = ImageIO.read(ficheroFull);
             if (img != null && img.getWidth() > 1900) {
                 System.out.println("imagen superior a 1900 de width width= " + img.getWidth() + ", path= " + path
                         + " || Establecer como maximo 1856 ancho x 850 de alto");
@@ -153,11 +150,7 @@ public class HoverButtonMouseListener extends MouseAdapter {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
-        if (btnName.equals(Constants.GOLDEN_EGG)) {
-            // limpiamos los componentes del jframe de informacion adicional
-            borrarComponentesDeJframe();
-        }
-        if (btnName.equals(Constants.TOME_TRAITS)) {
+        if (btnName.equals(Constants.ITEM_FRYING_PAN)) {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
@@ -198,6 +191,18 @@ public class HoverButtonMouseListener extends MouseAdapter {
             // limpiamos los componentes del jframe de informacion adicional
             borrarComponentesDeJframe();
         }
+        if (btnName.equals(Constants.SET_DIEZ)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_ONCE)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
+        if (btnName.equals(Constants.SET_DOCE)) {
+            // limpiamos los componentes del jframe de informacion adicional
+            borrarComponentesDeJframe();
+        }
         jframeAdditionalInfo.setVisible(false);
     }
 
@@ -217,19 +222,33 @@ public class HoverButtonMouseListener extends MouseAdapter {
     /**
      * Metodo para rellenar el panel al hacer hover en un boton
      * @param panelImageSrc ruta de la imagen a mostrar
-     * @param panelWidth anchura
-     * @param panelHeight altura
      * @param backgroundColor color de fondo
      */
-    private void mouseEnteredPanel(String panelImageSrc, int panelWidth, int panelHeight, Color backgroundColor) {
+    private void mouseEnteredPanel(String panelImageSrc, Color backgroundColor,
+                                   BufferedImage bufferedImage) {
+        int panelWidth = bufferedImage.getWidth();
+        int panelHeight = bufferedImage.getHeight();
+
         // Ponemos a visible el jframe de informacion adicional
         jframeAdditionalInfo.setVisible(true);
 
-        String imageInHtml = "<html>"
-                + "<div>&nbsp;&nbsp;<img src ='"
-                + Application.class.getResource(panelImageSrc)
-                + "'/>"
-                + "</html>";
+       Application application = new Application();
+       String folderImagesPath = application.getAppDataDirLocalImages();
+       String fullPath = folderImagesPath + panelImageSrc;
+        File ficheroFull = new File(fullPath);
+        String imageInHtml = "";
+        if(!ficheroFull.exists()) {
+            System.out.println("Se ha producido un error, no existe el fichero en la ruta " + fullPath);
+        } else {
+            try {
+                imageInHtml = "<html>"
+                        + "<div>&nbsp;&nbsp;<img src =\"" + ficheroFull.toURI().toURL()
+                        + "\" />"
+                        + "</html>";
+            } catch (Throwable e) {
+                System.out.println("error crendo la imagen: " + e.getMessage());
+            }
+        }
         JLabel jlabel = new JLabel(imageInHtml);
 
         // Hacemos que empiece arriba del jframe
@@ -249,4 +268,5 @@ public class HoverButtonMouseListener extends MouseAdapter {
         jframeAdditionalInfo.getRootPane().getContentPane().revalidate();
         jframeAdditionalInfo.getRootPane().getContentPane().repaint();
     }
+
 }
