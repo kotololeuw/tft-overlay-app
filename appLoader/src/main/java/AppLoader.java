@@ -200,8 +200,6 @@ public class AppLoader {
         // Folder images
         File folderImagesLocal = getAppFileImage("");
 
-        downloadImagesToLocal();
-
         // Online version || Note: It takes about 5-10 min to refresh the version when you upload a new version.txt
         URL onlineVersionUrl = new URL(versionOnlineUrl);
         HttpURLConnection onlineVersionHttp = (HttpURLConnection) onlineVersionUrl.openConnection();
