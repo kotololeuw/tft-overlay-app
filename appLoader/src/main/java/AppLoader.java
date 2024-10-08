@@ -301,7 +301,7 @@ public class AppLoader {
         for(int i=1;i<=12;i++) {
             downloadImageFileToLocal(urlBase + urlBaseDesc + i + downloadParamName + downloadRawParam, i + downloadParamName);
         }
-        String championPoolDesc = "CHAMPION-POOL-ICON-DESC.png";
+        String championPoolDesc = "CHAMPION-POOL-DESC.png";
         downloadImageFileToLocal(urlBase + urlBaseDesc + championPoolDesc + downloadRawParam, championPoolDesc);
         String fryingPanDesc = "FRYING-PAN-DESC.png";
         downloadImageFileToLocal(urlBase + urlBaseDesc + fryingPanDesc + downloadRawParam, fryingPanDesc);
