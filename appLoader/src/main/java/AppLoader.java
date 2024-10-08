@@ -281,7 +281,22 @@ public class AppLoader {
     public static void downloadImagesToLocal() {
         String extension = extensionPng;
         String downloadRawParam = "?raw=true";
-        downloadImageFileToLocal("https://github.com/kotololeuw/tft-overlay-app/blob/master/readme-img/app-img-2.png" + downloadRawParam,"1" + extension);
+        // icons
+        String urlBase = "https://github.com/kotololeuw/tft-overlay-app/blob/master/images/iconos/";
+        String downloadParamName = "-ICON.png";
+        for(int i=1;i<=12;i++) {
+            downloadImageFileToLocal(urlBase + i + downloadParamName + downloadRawParam, i + extension);
+        }
+        String championPool = "CHAMPION-POOL-ICON.png";
+        downloadImageFileToLocal(urlBase + championPool + downloadRawParam, championPool);
+        String exit = "EXIT-ICON.png";
+        downloadImageFileToLocal(urlBase + exit + downloadRawParam, exit);
+        String fryingPan = "FRYING-PAN.png";
+        downloadImageFileToLocal(urlBase + fryingPan + downloadRawParam, fryingPan);
+        String spatula = "SPATULA.png";
+        downloadImageFileToLocal(urlBase + spatula + downloadRawParam, spatula);
+        // descriptions
+
     }
 
     /*
