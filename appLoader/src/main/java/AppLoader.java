@@ -16,6 +16,9 @@ public class AppLoader {
     // The App directory
     static final String AppDirName = "tft-overlay-app";
 
+    // The Image directory
+    static final String AppDirNameImage = "tft-overlay-app/images";
+
     // The main application zip name
     static final String zipName = "tft-overlay-app.zip";
 
@@ -25,8 +28,14 @@ public class AppLoader {
     // First folder in the zip to extract
     static final String firstFolderInZipToExtract = "tft-overlay-app";
 
+    // Images
+    static final String folderImages = "images";
+
     // The path to the update zip at website
     static final String zipUrl = "https://raw.githubusercontent.com/kotololeuw/tft-overlay-app/master/tft-overlay-core/release/tft-overlay-app.zip";
+
+    // extension png
+    static final String extensionPng = ".png";
 
     // Version local
     static final String versionLocalPath = "version.txt";
@@ -188,6 +197,11 @@ public class AppLoader {
         // Folder zip
         File folderZipLocal = getAppFile(zipNameFolder);
 
+        // Folder images
+        File folderImagesLocal = getAppFileImage("");
+
+        downloadImagesToLocal();
+
         // Online version || Note: It takes about 5-10 min to refresh the version when you upload a new version.txt
         URL onlineVersionUrl = new URL(versionOnlineUrl);
         HttpURLConnection onlineVersionHttp = (HttpURLConnection) onlineVersionUrl.openConnection();
@@ -219,17 +233,27 @@ public class AppLoader {
         // We copy online file to local if it doesnt exist or it's an old version
         if (!zipLocal.exists()) {
             System.out.println("!zipLocal.exists()");
-            // Delete folderZip local
+            // Delete folderZip local APP
             if (folderZipLocal.exists()) {
                 deleteDirectory(folderZipLocal);
             }
+            // Delete folderImages
+            if(folderImagesLocal.exists()) {
+                deleteDirectory(folderImagesLocal);
+            }
+            // Create Images folder
+            getAppFileImage("");
+            // Download images
+            downloadImagesToLocal();
             // Download online zip
             downloadFileToLocal(zipUrl, zipName);
             // Unzip online zip
             extractZip();
         } else if(!versionLocal.equals(versionOnline)) {
             System.out.println("!versionLocal.equals(versionOnline) - versionLocal=\"" + versionLocal + "\", versionOnline=\"" + versionOnline + "\"");
-            // Delete folderZip local
+            // Delete folderImages
+            deleteDirectory(folderImagesLocal);
+            // Delete folderZip local App
             deleteDirectory(folderZipLocal);
             // Delete local zip
             zipLocal.delete();
@@ -239,6 +263,10 @@ public class AppLoader {
             downloadFileToLocal(zipUrl, zipName);
             // Unzip online zip
             extractZip();
+            // Create Images folder
+            getAppFileImage("");
+            // Download images
+            downloadImagesToLocal();
             // Download local version
             downloadFileToLocal(versionOnlineUrl, versionLocalPath);
         } else if(zipLocal.exists() && !folderZipLocal.exists()) {
@@ -248,6 +276,12 @@ public class AppLoader {
             System.out.println("app up to date, no actions required");
         }
         System.out.println("### END copyFilesToLocal ###");
+    }
+
+    public static void downloadImagesToLocal() {
+        String extension = extensionPng;
+        String downloadRawParam = "?raw=true";
+        downloadImageFileToLocal("https://github.com/kotololeuw/tft-overlay-app/blob/master/readme-img/app-img-2.png" + downloadRawParam,"1" + extension);
     }
 
     /*
@@ -285,7 +319,20 @@ public class AppLoader {
         } catch (Throwable e ) {
             e.printStackTrace();
         }
+    }
 
+    private static void downloadImageFileToLocal(String url, String file) {
+        System.out.println("### BEGIN downloadImageFileToLocal url= " + url + ", file= " + file + " ###");
+        try {
+            URL onlineFileUrl = new URL(url);
+            HttpURLConnection onlineFileHttp = (HttpURLConnection) onlineFileUrl.openConnection();
+            InputStream onlineFileStream = onlineFileHttp.getInputStream();
+            String path = getAppDataDirLocal(AppDirNameImage) + "\\" + file;
+            Files.copy(onlineFileStream, Paths.get(path));
+            System.out.println("### END downloadImageFileToLocal ###");
+        } catch (Throwable e ) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -366,11 +413,19 @@ public class AppLoader {
         return new File(getAppDir(), aName);
     }
 
+    private static File getAppFileImage(String aName) {
+        return new File(getAppDirImages(), aName);
+    }
+
     /**
      * Returns the Main jar file.
      */
     private static File getAppDir() {
         return getAppDataDir(AppDirName, true);
+    }
+
+    private static File getAppDirImages() {
+        return getAppDataDir(AppDirNameImage, true);
     }
 
     /**
