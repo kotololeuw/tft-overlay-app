@@ -278,7 +278,7 @@ public class AppLoader {
 
     public static void downloadImagesToLocal() {
         String downloadRawParam = "?raw=true";
-        String urlBase = "https://github.com/kotololeuw/tft-overlay-app/blob/master/images";
+        String urlBase = "https://github.com/kotololeuw/tft-overlay-app-images/blob/main/images";
         String urlBaseIcono = "/iconos/";
         String urlBaseDesc = "/descripcion-ampliada/";
         // icons
