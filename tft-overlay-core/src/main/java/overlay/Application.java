@@ -53,7 +53,7 @@ public class Application extends JPanel {
 
             // Añadimos los botones de los iconos standard
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo, folderImagesPath);
-            // createButtonMainBar(Constants.RUTA_ITEM_FRYING_PAN_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_FRYING_PAN, jframeAdditionalInfo, folderImagesPath);
+            createButtonMainBar(Constants.RUTA_ITEM_FRYING_PAN_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_FRYING_PAN, jframeAdditionalInfo, folderImagesPath);
             createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo, folderImagesPath);
             createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo, folderImagesPath);
 
