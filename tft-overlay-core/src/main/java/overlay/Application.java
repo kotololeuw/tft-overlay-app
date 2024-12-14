@@ -1,5 +1,6 @@
 package overlay;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -52,7 +53,7 @@ public class Application extends JPanel {
 
             // Añadimos los botones de los iconos standard
             createButtonMainBar(Constants.RUTA_ITEM_SPATULA_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_SPATULA, jframeAdditionalInfo, folderImagesPath);
-            createButtonMainBar(Constants.RUTA_ITEM_FRYING_PAN_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_FRYING_PAN, jframeAdditionalInfo, folderImagesPath);
+            // createButtonMainBar(Constants.RUTA_ITEM_FRYING_PAN_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.ITEM_FRYING_PAN, jframeAdditionalInfo, folderImagesPath);
             createButtonMainBar(Constants.RUTA_CHAMPION_POOL_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.CHAMPION_POOL, jframeAdditionalInfo, folderImagesPath);
             createButtonMainBar(Constants.RUTA_EXIT_ICON, jframeButtons, Constants.DEFAULT_BUTTON_WIDTH, Constants.DEFAULT_BUTTON_HEIGHT, Constants.EXIT, jframeAdditionalInfo, folderImagesPath);
 
@@ -69,6 +70,7 @@ public class Application extends JPanel {
 
     /**
      * Metodo para crear el jframe para mostrar informacion adicional
+     *
      * @param jframeButtons jframe
      * @return JFrame
      */
@@ -94,7 +96,7 @@ public class Application extends JPanel {
     /**
      * Metodo para obtener la referencia en el jframe de un componente, sabiendo la posicion lo podemos editar facilmente
      *
-     * @param name nombre
+     * @param name   nombre
      * @param jframe jframe
      * @return posicion
      */
@@ -114,36 +116,41 @@ public class Application extends JPanel {
     /**
      * Metodo para añadir botones al jframe principal
      *
-     * @param imgSrc    ruta
-     * @param jframeButtons  jframe
-     * @param btnWidth  anchura boton
-     * @param btnHeight altura boton
-     * @param jframeAdditionalInfo    jframe
+     * @param imgSrc               ruta
+     * @param jframeButtons        jframe
+     * @param btnWidth             anchura boton
+     * @param btnHeight            altura boton
+     * @param jframeAdditionalInfo jframe
      */
     private static void createButtonMainBar(String imgSrc, JFrame jframeButtons, int btnWidth, int btnHeight, String name, JFrame jframeAdditionalInfo
-    , String imagePath) {
+            , String imagePath) {
         ImageIcon icon = null;
         try {
             String fullImagePath = imagePath + imgSrc;
-            icon = new ImageIcon(fullImagePath);
-            JButton jbutton = new JButton();
-            jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
-            icon = resizeIcon(icon, btnWidth, btnHeight);
-            jbutton.setIcon(icon);
+            // primero comprobamos que exista descripcion, en caso contrario no crearemos el boton
+            String fullDescImagePath = fullImagePath.replaceAll("ICON", "DESC");
+            File ficheroDesc = new File(fullDescImagePath);
+            if(ficheroDesc != null && ficheroDesc.exists()) {
+                icon = new ImageIcon(fullImagePath);
+                JButton jbutton = new JButton();
+                jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
+                icon = resizeIcon(icon, btnWidth, btnHeight);
+                jbutton.setIcon(icon);
 
-            // Nombre en caso de que necesitemos recuperarlo posteriormente
-            jbutton.setName(name);
+                // Nombre en caso de que necesitemos recuperarlo posteriormente
+                jbutton.setName(name);
 
-            // Añadimos espacio en el jframe para meter el boton
-            Dimension dimension = jframeButtons.getPreferredSize();
-            dimension.setSize(dimension.getWidth() + btnWidth, dimension.getHeight());
-            jframeButtons.setPreferredSize(dimension);
+                // Añadimos espacio en el jframe para meter el boton
+                Dimension dimension = jframeButtons.getPreferredSize();
+                dimension.setSize(dimension.getWidth() + btnWidth, dimension.getHeight());
+                jframeButtons.setPreferredSize(dimension);
 
-            // Añadimos la funcion HOVER
-            jbutton.addMouseListener(new HoverButtonMouseListener(jframeButtons, name, jframeAdditionalInfo));
+                // Añadimos la funcion HOVER
+                jbutton.addMouseListener(new HoverButtonMouseListener(jframeButtons, name, jframeAdditionalInfo));
 
-            // Lo añadimos al frame principal
-            jframeButtons.getRootPane().getContentPane().add(jbutton);
+                // Lo añadimos al frame principal
+                jframeButtons.getRootPane().getContentPane().add(jbutton);
+            }
         } catch (Throwable e) {
             System.out.println("icon not found " + imgSrc);
         }
@@ -168,9 +175,9 @@ public class Application extends JPanel {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         jframe.setLocation(dimension.width / 2 - jframe.getSize().width / 2, dimension.height / 2 - jframe.getSize().height / 2);
         // hacemos que aparte de centrado, aparezca arriba y  a la izquierda
-        int resizeDimension = (int)jframe.getLocation().getX();
+        int resizeDimension = (int) jframe.getLocation().getX();
         resizeDimension = resizeDimension - 925;
-        jframe.setLocation(resizeDimension,25);
+        jframe.setLocation(resizeDimension, 25);
         // al cerrarlo destruirlo
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         return jframe;
@@ -179,7 +186,7 @@ public class Application extends JPanel {
     /**
      * Metodo para añadir el evento al jframe para arrastrar el jframe
      *
-     * @param jframeButtons jframe
+     * @param jframeButtons        jframe
      * @param jframeAdditionalInfo jframe
      */
     private static void addDragEventToJframe(JFrame jframeButtons, JFrame jframeAdditionalInfo) {
@@ -223,6 +230,7 @@ public class Application extends JPanel {
     static boolean isWindows = (System.getProperty("os.name")
             .indexOf("Windows") >= 0);
     static boolean isMac = (System.getProperty("os.name").indexOf("Mac OS X") >= 0);
+
     public static String getAppDataDirLocalImages() {
         // Get user home + AppDataDir (platform specific) + name (if provided)
         String aName = AppDirNameWithImage;

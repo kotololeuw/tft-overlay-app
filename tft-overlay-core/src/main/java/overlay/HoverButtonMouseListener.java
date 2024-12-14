@@ -105,7 +105,7 @@ public class HoverButtonMouseListener extends MouseAdapter {
         }
     }
 
-    private BufferedImage getImageFromProject(String path) {
+    public static BufferedImage getImageFromProject(String path) {
         BufferedImage img = null;
         try {
             // Ruta imagenes
