@@ -127,10 +127,22 @@ public class Application extends JPanel {
         ImageIcon icon = null;
         try {
             String fullImagePath = imagePath + imgSrc;
-            // primero comprobamos que exista descripcion, en caso contrario no crearemos el boton
-            String fullDescImagePath = fullImagePath.replaceAll("ICON", "DESC");
-            File ficheroDesc = new File(fullDescImagePath);
-            if(ficheroDesc != null && ficheroDesc.exists()) {
+            boolean isValid = false;
+            if (fullImagePath.contains("EXIT-ICON")) {
+                isValid = true;
+            }
+            if (!isValid) {
+                // primero comprobamos que exista descripcion, en caso contrario no crearemos el boton
+                String fullDescImagePath = fullImagePath.replaceAll("ICON", "DESC");
+                if(!fullDescImagePath.endsWith("-DESC.png")) {
+                    fullDescImagePath = fullDescImagePath.replaceAll(".png", "-DESC.png");
+                }
+                File ficheroDesc = new File(fullDescImagePath);
+                if (ficheroDesc != null && ficheroDesc.exists()) {
+                    isValid = true;
+                }
+            }
+            if (isValid) {
                 icon = new ImageIcon(fullImagePath);
                 JButton jbutton = new JButton();
                 jbutton.setPreferredSize(new Dimension(btnWidth, btnHeight));
